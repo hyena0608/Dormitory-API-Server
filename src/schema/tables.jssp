@@ -1,0 +1,50 @@
+
+    
+table user_type {
+  userType TypeID = 0;
+  name Name = '';
+  
+  key(userType);
+}
+
+data user_type {
+  (1, 'guest')
+  (2, 'member')
+  (99, 'super user')
+}
+
+table user {
+  userId UserID = '';
+  nickname Nickname = '';
+  email Email = '';
+  userType TypeID = 0;
+  
+  createDt Datetime;
+  updateDt Datetime;
+  
+  key(userId);
+  
+  link(userType) to user_type(userType);
+  
+  index(email);
+  unique index(nickname);
+}
+
+table notice {
+  noticeId NumID auto = 0;
+  writerId UserID = '';
+  subject Subject = '';
+  content Content = '';
+  createDt Datetime;
+  updateDt Datetime;  
+  
+  [name="notice_pk"]
+  key(noticeId);
+  
+  [name="notice_fk1"]
+  link(writerId) to user(userId);
+}
+
+
+    
+    

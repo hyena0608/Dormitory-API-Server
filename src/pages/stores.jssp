@@ -1,0 +1,16 @@
+
+store main {
+}
+
+[desc='app store', module=true]
+store app {
+    [localStorage=true]
+    accessToken string 'access token'
+}
+
+[desc='project store', module=true]
+store project {
+    [localStorage=true]
+    userId string 'user id'
+}
+    

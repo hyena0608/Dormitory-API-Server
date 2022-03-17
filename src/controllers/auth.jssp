@@ -1,0 +1,46 @@
+
+define opcode[controller=Auth, baseURL='/api/v1/auth']
+{
+    [method=post, action='login', noauth, overwrite=false]
+    login 100 'login'
+    
+    [method=post, action='register', noauth, overwrite=false]
+    register 200 'register'
+}
+
+req login
+{
+    email Email 'email'
+    password Password 'password'
+}
+
+res login
+{
+    userInfo UserInfo 'user information.'
+    accessToken string 'access token'
+    
+    code = [
+      Success,
+      Failed,
+      NotFoundUser,
+      BadParams
+    ]
+}
+
+req register {
+    email Email 'email'
+    password Password 'password'
+    nickname Nickname 'nickname'
+}
+
+res register
+{
+    accessToken string 'access token'
+    
+    code = [
+      Success,
+      Failed,
+      BadParams
+    ]
+}
+    

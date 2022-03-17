@@ -1,0 +1,15 @@
+define page {
+    [name='Splash', path='', route='/splash', overwrite=false]
+    SplashPage 10 'initial page'
+    
+    [name='Login', path='', route='/login', overwrite=false]
+    LoginPage 20 'login page' 
+}
+
+page SplashPage
+{
+}
+
+page LoginPage
+{
+}
