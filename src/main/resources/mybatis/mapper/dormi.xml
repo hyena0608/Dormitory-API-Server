@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dormi.mapper.DormiMapper">
+
+  <insert id="insertDormitoryStudentInRoom">
+    INSERT INTO
+        dormitory_student
+        (
+            dormitory_id,
+            room_id,
+            student_id,
+            dormitory_student_semester
+        )
+    VALUES
+        (
+            #{dormitoryId},
+            #{roomId},
+            #{studentId},
+            #{dormitoryStudentSemester}
+        )
+  </insert>
+
+  <update id="updateDormitoryStudentOutRoom">
+    UPDATE
+        dormitory_student
+    SET
+        dormitory_student_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'>
+            dormitory_student_id = #{dormitoryStudentId}
+        </if>
+        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'>
+            and
+        </if>
+        <if test='studentId != null and studentId != ""'>
+            student_id = #{studentId}
+        </if>
+  </update>
+
+  <select id="selectDormitoryStudentByDormitoryStudentId" resultType="DormitoryStudentInfoVo">
+    SELECT
+        dormitory_student_id,
+        dormitory_student_semester,
+        dormitory_id,
+        room_id,
+        student_id
+    FROM
+        dormitory_student
+    WHERE
+        dormitory_student_id = #{dormitoryStudentId}
+  </select>
+
+  <insert id="insertDormitory">
+    INSERT INTO
+        dormitory
+        (
+            dormitory_name,
+            dormitory_address
+        )
+    VALUES
+        (
+            #{dormitoryName},
+            #{dormitoryAddress}
+        )
+  </insert>
+
+  <update id="updateDormitory">
+    UPDATE
+        dormitory
+    SET
+        dormitory_update_dt = CURRENT_TIMESTAMP
+        <if test='dormitoryName != null and dormitoryName != ""'>
+            , dormitory_name = #{dormitoryName}
+        </if>
+        <if test='dormitoryAddress != null and dormitoryName != ""'>
+            , dormitory_address = #{dormitoryAddress}
+        </if>
+    WHERE dormitory_id = #{dormitoryId}
+  </update>
+
+  <update id="deleteDormitory">
+    UPDATE
+        dormitory
+    SET
+        dormitory_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        <if test='dormitoryId != null and dormitoryId != ""'>
+            dormitory_id = #{dormitoryId}
+        </if>
+        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
+            and
+        </if>
+        <if test='dormitoryName != null and dormitoryName != ""'>
+            dormitory_name = #{dormitoryName}
+        </if>
+  </update>
+
+  <select id="selectDormitoryOne" resultType="DormitoryInfoVo">
+    SELECT
+        dormitory_name,
+        dormitory_address
+    FROM
+        dormitory
+    WHERE
+        <if test='dormitoryId == null and dormitoryId == ""'>
+            <if test='dormitoryName != null and dormitoryName != ""'>
+                dormitory_name = #{dormitoryName}
+            </if>
+        </if>
+
+        <if test='dormitoryName == null or dormitoryName == ""'>
+            <if test='dormitoryId != null and dormitoryId != ""'>
+                dormitory_id = #{dormitoryId}
+            </if>
+        </if>
+
+        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
+            dormitory_id = #{dormitoryId} and dormitory_name = #{dormitoryName}
+        </if>
+  </select>
+
+  <select id="selectDormitoryList" resultType="DormitoryInfoVo">
+    SELECT
+        dormitory_name,
+        dormitory_address
+    FROM
+        dormitory
+  </select>
+
+  <insert id="insertStudent">
+    INSERT INTO
+        student
+        (
+            student_hakbun,
+            student_sex,
+            student_name,
+            student_age
+        )
+    VALUES
+        (
+            #{studentHakbun},
+            #{studentSex},
+            #{studentName},
+            #{studentAge}
+        )
+  </insert>
+
+  <update id="updateStudent">
+    UPDATE
+        student
+    SET
+        student_update_dt = CURRENT_TIMESTAMP
+        <if test='studentSex != null and studentSex != ""'>
+            , student_sex = #{studentSex}
+        </if>
+        <if test='studentName != null and studentName != ""'>
+            , student_name = #{studentName}
+        </if>
+        <if test='studentAge != null and studentAge != ""'>
+            , student_age = #{studentAge}
+        </if>
+    WHERE
+        <if test='studentId != null and studentId != ""'>
+            student_id = #{studentId}
+        </if>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+            and
+        </if>
+        <if test='studentHakbun != null and studentHakbun != ""'>
+            student_hakbun = #{studentHakbun}
+        </if>
+  </update>
+
+  <update id="deleteStudent">
+    UPDATE
+        student
+    SET
+        student_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        <if test='studentId != null and studentId != ""'>
+            student_id = #{studentId}
+        </if>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+            and
+        </if>
+        <if test='studentHakbun != null and studentHakbun != ""'>
+            student_hakbun = #{studentHakbun}
+        </if>
+  </update>
+
+  <select id="selectStudentOneByIdHakbun" resultType="StudentInfoVo">
+    SELECT
+        student_hakbun,
+        student_sex,
+        student_name,
+        student_age
+    FROM
+        student
+    WHERE
+        <if test='studentId != null and studentId != ""'>
+            student_id = #{studentId}
+        </if>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+            and
+        </if>
+        <if test='studentHakbun != null and studentHakbun != ""'>
+            student_hakbun = #{studentHakbun}
+        </if>
+  </select>
+
+  <select id="selectStudentListBySexNameAge" resultType="StudentInfoVo">
+    SELECT
+        student_hakbun,
+        student_sex,
+        student_name,
+        student_age
+    FROM
+        student
+    WHERE
+        <if test='studentSex != null and studentSex != ""'>
+            student_sex = #{studentSex}
+        </if>
+        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'>
+            and
+        </if>
+        <if test='studentName != null and studentName != ""'>
+            student_name = #{studentName}
+        </if>
+  </select>
+
+  <insert id="insertRoom">
+    INSERT INTO
+        room
+        (
+            room_number,
+            room_limit_cnt,
+            dormitory_id
+        )
+    VALUES
+        (
+            #{roomNumber},
+            #{roomLimitCnt},
+            #{dormitoryId}
+        )
+  </insert>
+
+  <update id="updateRoomLimitCnt">
+    UPDATE
+        room
+    SET
+        room_update_dt = CURRENT_TIMESTAMP,
+        room_limit_cnt = #{roomLimitCnt}
+    WHERE
+        <if test='roomId != null and roomId != ""'>
+            room_id = #{roomId}
+        </if>
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
+            and
+        </if>
+        <if test='roomNumber != null and roomNumber != ""'>
+            room_number = #{roomNumber}
+        </if>
+  </update>
+
+  <update id="deleteRoomByIdNum">
+    UPDATE
+        room
+    SET
+        room_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        <if test='roomId != null and roomId != ""'>
+            room_id = #{roomId}
+        </if>
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
+            and
+        </if>
+        <if test='roomNumber != null and roomNumber != ""'>
+            room_number = #{roomNumber}
+        </if>
+  </update>
+
+  <select id="selectRoomOneByIdNum" resultType="RoomInfoVo">
+    SELECT
+      room_number,
+      room_limit_cnt,
+      room_current_cnt
+    FROM
+      room
+    WHERE
+        <if test='roomId != null and roomId != ""'>
+      room_id = #{roomId}
+        </if>
+        <if test='roomId != null and roomId != "" and roomNumber != 0'>
+      and
+        </if>
+        <if test='roomNumber != 0'>
+      room_number = #{roomNumber}
+        </if>
+  </select>
+
+  <select id="selectRoomListByLimitCnt" resultType="RoomInfoVo">
+    SELECT
+        room_number,
+        room_limit_cnt,
+        room_current_cnt
+    FROM
+        room
+    <if test='roomLimitCnt != null and roomLimitCnt != ""'>
+    WHERE
+        room_limit_cnt = #{roomLimitCnt}
+    </if>
+  </select>
+
+  <update id="updateRoomCurrentCntByRoomId">
+    UPDATE
+        room
+    SET
+    room_update_dt = CURRENT_TIMESTAMP,
+    room_current_cnt
+    <if test='how == 1'>
+            = room_current_cnt + 1
+        </if>
+    <if test='how == 2'>
+            = room_current_cnt - 1
+        </if>
+    WHERE
+        room_id = #{roomId}
+  </update>
+</mapper>

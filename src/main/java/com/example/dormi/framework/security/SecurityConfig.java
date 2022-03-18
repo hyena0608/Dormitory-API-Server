@@ -1,8 +1,9 @@
 package com.example.dormi.framework.security;
 
-import com.example.miniminishop.framework.security.jwt.JwtTokenProvider;
-import com.example.miniminishop.framework.security.jwt.JwtAuthenticationFilter;
-import com.example.miniminishop.framework.security.jwt.JwtTokenProvider;
+import com.example.dormi.framework.security.jwt.JwtTokenProvider;
+import com.example.dormi.framework.security.jwt.JwtTokenProvider;
+import com.example.dormi.framework.security.jwt.JwtAuthenticationFilter;
+import com.example.dormi.framework.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
