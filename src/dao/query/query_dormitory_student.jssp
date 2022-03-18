@@ -36,3 +36,18 @@ query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) {
         </if>
         
 }
+
+query selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId Long) DormitoryStudentInfoVo {
+
+    SELECT
+        dormitory_student_id,
+        dormitory_student_semester,
+        dormitory_id,
+        room_id,
+        student_id
+    FROM
+        dormitory_student
+    WHERE
+        dormitory_student_id = :dormitoryStudentId
+
+}

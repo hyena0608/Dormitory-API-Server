@@ -1,4 +1,5 @@
-.history
-.dormi
-.dormi-apc-doc
-.dormi-schema
+.history/*
+.dormi/*
+.dormi-apc-doc/swagger.json
+.dormi-schema/*
+.coders

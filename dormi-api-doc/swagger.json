@@ -624,6 +624,26 @@
       }
     },
     "schemas": {
+      "dormitoryStudentInfo": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
+          },
+          "dormitoryStudentSemester": {
+            "type": "integer"
+          },
+          "dormitoryId": {
+            "type": "number"
+          },
+          "roomId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        }
+      },
       "DormitoryInfo": {
         "type": "object",
         "properties": {

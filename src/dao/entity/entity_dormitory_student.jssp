@@ -1,0 +1,8 @@
+entity DormitoryStudentInfoVo '기숙학생 정보' {
+    dormitoryStudentId Long;
+    dormitoryStudentSemester TypeID;
+    
+    dormitoryId Long;
+    roomId Long;
+    studentId Long;
+}
