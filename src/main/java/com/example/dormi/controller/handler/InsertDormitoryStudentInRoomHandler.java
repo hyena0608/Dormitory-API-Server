@@ -3,6 +3,7 @@ package com.example.dormi.controller.handler;
 import com.example.dormi.controller.request.*;
 import com.example.dormi.controller.response.*;
 import com.example.dormi.mapper.DormiMapper;
+import com.example.dormi.mapper.vo.RoomInfoVo;
 import com.example.dormi.service.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,12 +32,8 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
     }
 
     try {
-
       long d_s_id = mapper.insertDormitoryStudentInRoom(dormitoryId, roomId, studentId, dormitoryStudentSemester);
-      mapper.updateRoomCurrentCntByRoomId(roomId, 1);
-
-      res.setDormitoryStudentId(d_s_id);
-      res.setCode(ResultCode.Success);
+      roomCurrentCount(res, roomId, d_s_id);
       return res;
     }
     catch(Exception e) {
@@ -44,5 +41,21 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
       res.setCode(ResultCode.Failed);
       return res;
     }
+  }
+
+  
+  /**
+   * 방 제한인원과 현 인원 비교 메서드
+   */
+  private void roomCurrentCount(InsertDormitoryStudentInRoomResponse res, long roomId, long d_s_id) {
+    RoomInfoVo roomInfoVo = mapper.selectRoomOneByIdNum(roomId, 0);
+    int roomLimitCnt = roomInfoVo.getRoomLimitCnt();
+    int roomCurrentCnt = roomInfoVo.getRoomCurrentCnt();
+    if (roomLimitCnt > roomCurrentCnt) {
+      mapper.updateRoomCurrentCntByRoomId(roomId, 1);
+      res.setCode(ResultCode.Success);
+      res.setDormitoryStudentId(d_s_id);
+    }
+    else res.setCode(ResultCode.PeopleCntError);
   }
 }

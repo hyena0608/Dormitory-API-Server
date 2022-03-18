@@ -26,10 +26,10 @@
     SET
         dormitory_student_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'> 
+        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'>
             dormitory_student_id = #{dormitoryStudentId}
         </if>
-        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'> 
+        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'>
             and
         </if>
         <if test='studentId != null and studentId != ""'>
@@ -54,10 +54,10 @@
     INSERT INTO
         dormitory
         (
-            dormitory_name, 
+            dormitory_name,
             dormitory_address
-        ) 
-    VALUES 
+        )
+    VALUES
         (
             #{dormitoryName},
             #{dormitoryAddress}
@@ -66,10 +66,10 @@
 
   <update id="updateDormitory">
     UPDATE
-        dormitory 
+        dormitory
     SET
         dormitory_update_dt = CURRENT_TIMESTAMP
-        <if test='dormitoryName != null and dormitoryName != ""'> 
+        <if test='dormitoryName != null and dormitoryName != ""'>
             , dormitory_name = #{dormitoryName}
         </if>
         <if test='dormitoryAddress != null and dormitoryName != ""'>
@@ -80,14 +80,14 @@
 
   <update id="deleteDormitory">
     UPDATE
-        dormitory 
+        dormitory
     SET
         dormitory_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='dormitoryId != null and dormitoryId != ""'> 
+        <if test='dormitoryId != null and dormitoryId != ""'>
             dormitory_id = #{dormitoryId}
         </if>
-        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'> 
+        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
             and
         </if>
         <if test='dormitoryName != null and dormitoryName != ""'>
@@ -99,7 +99,7 @@
     SELECT
         dormitory_name,
         dormitory_address
-    FROM 
+    FROM
         dormitory
     WHERE
         <if test='dormitoryId == null and dormitoryId == ""'>
@@ -123,7 +123,7 @@
     SELECT
         dormitory_name,
         dormitory_address
-    FROM 
+    FROM
         dormitory
   </select>
 
@@ -160,10 +160,10 @@
             , student_age = #{studentAge}
         </if>
     WHERE
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != ""'>
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
@@ -177,10 +177,10 @@
     SET
         student_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != ""'>
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
@@ -197,10 +197,10 @@
     FROM
         student
     WHERE
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != ""'>
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
@@ -217,10 +217,10 @@
     FROM
         student
     WHERE
-        <if test='studentSex != null and studentSex != ""'> 
+        <if test='studentSex != null and studentSex != ""'>
             student_sex = #{studentSex}
         </if>
-        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'> 
+        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'>
             and
         </if>
         <if test='studentName != null and studentName != ""'>
@@ -251,10 +251,10 @@
         room_update_dt = CURRENT_TIMESTAMP,
         room_limit_cnt = #{roomLimitCnt}
     WHERE
-        <if test='roomId != null and roomId != ""'> 
+        <if test='roomId != null and roomId != ""'>
             room_id = #{roomId}
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
             and
         </if>
         <if test='roomNumber != null and roomNumber != ""'>
@@ -268,10 +268,10 @@
     SET
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='roomId != null and roomId != ""'> 
+        <if test='roomId != null and roomId != ""'>
             room_id = #{roomId}
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
             and
         </if>
         <if test='roomNumber != null and roomNumber != ""'>
@@ -281,20 +281,20 @@
 
   <select id="selectRoomOneByIdNum" resultType="RoomInfoVo">
     SELECT
-        room_number,
-        room_limit_cnt,
-        room_current_cnt
+      room_number,
+      room_limit_cnt,
+      room_current_cnt
     FROM
-        room
+      room
     WHERE
-        <if test='roomId != null and roomId != ""'> 
-            room_id = #{roomId}
+        <if test='roomId != null and roomId != ""'>
+      room_id = #{roomId}
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
-            and
+        <if test='roomId != null and roomId != "" and roomNumber != 0'>
+      and
         </if>
-        <if test='roomNumber != null and roomNumber != ""'>
-            room_number = #{roomNumber}
+        <if test='roomNumber != 0'>
+      room_number = #{roomNumber}
         </if>
   </select>
 

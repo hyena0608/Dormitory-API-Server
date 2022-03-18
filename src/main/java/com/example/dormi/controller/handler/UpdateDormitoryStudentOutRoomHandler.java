@@ -4,6 +4,7 @@ import com.example.dormi.controller.request.*;
 import com.example.dormi.controller.response.*;
 import com.example.dormi.mapper.DormiMapper;
 import com.example.dormi.mapper.vo.DormitoryStudentInfoVo;
+import com.example.dormi.mapper.vo.RoomInfoVo;
 import com.example.dormi.service.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,14 +31,8 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
 //    }
 
     try {
-
       mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
-      DormitoryStudentInfoVo dormitoryStudentInfoVo = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
-      long roomId = dormitoryStudentInfoVo.getRoomId();
-      System.out.println("roomId = " + roomId);
-      mapper.updateRoomCurrentCntByRoomId(roomId, 2);
-
-      res.setCode(ResultCode.Success);
+      roomCurrentCount(res, dormitoryStudentId);
       return res;
     }
     catch(Exception e) {
@@ -45,5 +40,16 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
       res.setCode(ResultCode.Failed);
       return res;
     }
+  }
+
+  private void roomCurrentCount(UpdateDormitoryStudentOutRoomResponse res, long dormitoryStudentId) {
+    DormitoryStudentInfoVo dormitoryStudentInfoVo = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
+    long roomId = dormitoryStudentInfoVo.getRoomId();
+    RoomInfoVo roomInfoVo = mapper.selectRoomOneByIdNum(roomId, 0);
+    int roomCurrentCnt = roomInfoVo.getRoomCurrentCnt();
+    if (roomCurrentCnt > 0) {
+      mapper.updateRoomCurrentCntByRoomId(roomId, 2);
+      res.setCode(ResultCode.Success);
+    } else res.setCode(ResultCode.PeopleCntError);
   }
 }
