@@ -12,8 +12,8 @@ define opcode[controller=ApiRoom, base='/api/v1']
     [method=get, action='room/select', noauth, overwrite=true]
     selectRoomOneByIdNum 2004 '방 개별 조회'
 
-    [method=get, action='room/select/list', noauth, overwrite=true]
-    selectRoomListByLimitCnt 2005 '방 리스트 조회'
+    [method=get, action='room/select/all', noauth, overwrite=true]
+    selectRoomAllByLimitCnt 2005 '방 리스트 조회'
 }
 
 /**
