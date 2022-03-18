@@ -46,7 +46,6 @@ table dormitory_student {
     dormitory_student_delete_dt Timestamp = "";
     
     dormitory_id Long;
-    room_id Long;
     student_id Long;
     key(dormitory_student_id);
 }

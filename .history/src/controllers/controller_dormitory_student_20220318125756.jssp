@@ -1,0 +1,73 @@
+define opcode[controller=ApiDormitoryStudent, base='/api/v1']
+{
+    [method=post, action='student/insert', noauth, overwrite=true]
+    insertStudent 4001 '학생 방에 입실'
+
+    [method=post, action='student/update', noauth, overwrite=true]
+    updateStudent 4002 '학생 방에서 퇴실'
+}
+
+/**
+ * 3001
+ */
+req insertStudent {
+    studentHakbun Long;
+    studentSex TypeID;
+    student_name Name;
+    student_age Age;
+}
+
+res insertStudent {
+    studentId Long;
+}
+
+/**
+ * 3002
+ */
+req updateStudent {
+    studentId Long;
+    studentHakbun Long;
+    studentSex TypeID;
+    studentName Name;
+    studentAge Age;
+}
+
+res updateStudent {
+    studentId Long;
+}
+
+/**
+ * 3003
+ */
+req deleteStudent {
+    studentId Long;
+    studentHakbun Long;
+}
+
+res deleteStudent {
+    studentId Long;
+}
+
+/**
+ * 3004
+ */
+req selectStudentOneByIdHakbun {
+    studentId Long;
+    studentHakbun Long;
+}
+
+res selectStudentOneByIdHakbun {
+    studentInfo StudentInfo
+}
+
+/**
+ * 3005
+ */
+req selectStudentListBySexNameAge {
+    studentSex TypeID;
+    studentName Name;
+}
+
+res selectStudentListBySexNameAge {
+    studentInfos list<StudentInfo>
+}

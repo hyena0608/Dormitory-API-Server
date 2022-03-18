@@ -32,7 +32,8 @@ query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) {
             and
         </if>
         <if test='studentId != null and studentId != ""'>
-            student_id = :student_id
+            student_id = :student_d
         </if>
         
+
 }

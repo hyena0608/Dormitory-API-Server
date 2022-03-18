@@ -1,0 +1,33 @@
+query insertDormitoryStudentInRoom(dormitoryId Long, roomId Long, studentId Long, dormitoryStudentSemester TypeID) Long {
+
+    INSERT INTO
+        dormitory_student
+        (
+            dormitory_id,
+            room_id,
+            student_id,
+            dormitory_student_semester,
+        )
+    VALUES
+        (
+            :dormitoryId,
+            :roomId,
+            :studentId,
+            :dormitoryStudentSemester
+        )
+
+}
+
+query updateDormitoryStudentOutRoom(dormitoryStudentId Long, dormitoryId Long, roomId Long, studentId Long, dormitoryStudentSemester TypeID) {
+
+    UPDATE
+        dormitory_student
+    SET
+        <if test='dormitoryId != null and dormitoryId != ""'>
+            <if test='roomId != null and roomId != ""'>
+                
+            </if>
+        </if>
+
+
+}

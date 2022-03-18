@@ -38,7 +38,7 @@ table room {
 }
 
 
-table dormitory_student {
+table dormitory_room_student {
     dormitory_student_id Long auto;
     dormitory_student_semester TypeID;
     dormitory_student_start_dt Timestamp = CURRENT_TIMESTAMP;

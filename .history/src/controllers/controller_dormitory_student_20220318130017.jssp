@@ -1,0 +1,26 @@
+define opcode[controller=ApiDormitoryStudent, base='/api/v1']
+{
+    [method=post, action='dormitorystudent/insert', noauth, overwrite=true]
+    insertDormitoryStudnetInRoom 4001 '학생 방에 입실 (학기)'
+
+    [method=post, action='dormitorystudent/delete', noauth, overwrite=true]
+    updateDormitoryStudnetOutRoom 4002 '학생 방에서 퇴실 (학기)'
+}
+
+/**
+ * 3001
+ */
+req insertStudent {
+}
+
+res insertStudent {
+}
+
+/**
+ * 3002
+ */
+req updateStudent {
+}
+
+res updateStudent {
+}
