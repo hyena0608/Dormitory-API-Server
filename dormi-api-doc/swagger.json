@@ -727,6 +727,9 @@
           },
           "roomLimitCnt": {
             "type": "integer"
+          },
+          "dormitoryId": {
+            "type": "number"
           }
         }
       },
