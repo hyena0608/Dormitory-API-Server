@@ -242,16 +242,18 @@
   <insert id="insertRoom">
     <![CDATA[
     INSERT INTO
-        room
-        (
-            room_number,
-            room_limit_cnt
-        )
+      room
+    (
+      room_number,
+      room_limit_cnt,
+      dormitory_id
+    )
     VALUES
-        (
-            #{roomNumber},
-            #{roomLimitCnt}
-        )
+      (
+        #{roomNumber},
+        #{roomLimitCnt},
+        #{dormitoryId}
+      )
     ]]>
   </insert>
 

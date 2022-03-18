@@ -52,7 +52,7 @@ public class DormiMapperService {
     return mapper.deleteStudent(studentId, studentHakbun);
   }
 
-  public StudentInfoVo selectStudentOneByIdHakbun(int studentId, long studentHakbun) {
+  public StudentInfoVo selectStudentOneByIdHakbun(long studentId, long studentHakbun) {
     return mapper.selectStudentOneByIdHakbun(studentId, studentHakbun);
   }
 
@@ -60,8 +60,8 @@ public class DormiMapperService {
     return mapper.selectStudentListBySexNameAge(studentSex, studentName);
   }
 
-  public long insertRoom(long roomNumber, int roomLimitCnt) {
-    return mapper.insertRoom(roomNumber, roomLimitCnt);
+  public long insertRoom(long roomNumber, int roomLimitCnt, long dormitoryId) {
+    return mapper.insertRoom(roomNumber, roomLimitCnt, dormitoryId);
   }
 
   public long updateRoomLimitCnt(long roomId, long roomNumber, int roomLimitCnt) {

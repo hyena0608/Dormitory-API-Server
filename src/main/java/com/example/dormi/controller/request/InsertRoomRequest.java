@@ -15,4 +15,7 @@ public class InsertRoomRequest {
 
   @ApiParam(value = "null", required = true)
   private int roomLimitCnt;
+
+  @ApiParam(value = "null", required = true)
+  private long dormitoryId;
 }

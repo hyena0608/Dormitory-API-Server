@@ -31,7 +31,7 @@ public interface DormiMapper {
 
   List<StudentInfoVo> selectStudentListBySexNameAge(@Param("studentSex") int studentSex, @Param("studentName") String studentName);
 
-  long insertRoom(@Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
+  long insertRoom(@Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt, @Param("dormitoryId") long dormitoryId);
 
   long updateRoomLimitCnt(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
 
