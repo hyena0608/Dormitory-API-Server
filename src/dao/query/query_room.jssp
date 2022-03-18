@@ -67,10 +67,10 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
         <if test='roomId != null and roomId != ""'> 
             room_id = :roomId
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
+        <if test='roomId != null and roomId != "" and roomNumber != 0'> 
             and
         </if>
-        <if test='roomNumber != null and roomNumber != ""'>
+        <if test='roomNumber != 0'>
             room_number = :roomNumber
         </if>        
 
