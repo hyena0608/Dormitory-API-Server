@@ -23,8 +23,11 @@
         <if test='dormitoryName != null and dormitoryName != ""'> 
             , dormitory_name = :dormitoryName
         </if>
+        <if test='dormitoryName != null and dormitoryName != "" and dormitoryAddress != null and dormitoryName != ""'> 
+            ,
+        </if>
         <if test='dormitoryAddress != null and dormitoryName != ""'>
-            , dormitory_address = :dormitoryAddress
+            dormitory_address = :dormitoryAddress
         </if>
     WHERE dormitory_id = :dormitoryId
 

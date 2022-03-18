@@ -19,7 +19,6 @@ query updateRoomLimitCnt(roomId Long, roomNumber Long, roomLimitCnt People) Long
     UPDATE
         room
     SET
-        room_update_dt = CURRENT_TIMESTAMP,
         room_limit_cnt = :roomLimitCnt
     WHERE
         <if test='roomId != null and roomId != ""'> 
