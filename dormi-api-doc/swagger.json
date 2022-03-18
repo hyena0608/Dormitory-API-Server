@@ -31,6 +31,10 @@
     {
       "name": "ApiRoom",
       "description": "ApiRoom Controller"
+    },
+    {
+      "name": "ApiDormitoryStudent",
+      "description": "ApiDormitoryStudent Controller"
     }
   ],
   "paths": {
@@ -545,6 +549,70 @@
           }
         }
       }
+    },
+    "/api/v1/dormitorystudent/insert": {
+      "post": {
+        "summary": "학생 방에 입실 (학기)",
+        "operationId": "insertDormitoryStudentInRoom",
+        "tags": [
+          "ApiDormitoryStudent"
+        ],
+        "requestBody": {
+          "description": "학생 방에 입실 (학기)",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertDormitoryStudentInRoomRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertDormitoryStudentInRoomResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dormitorystudent/delete": {
+      "post": {
+        "summary": "학생 방에서 퇴실 (학기)",
+        "operationId": "updateDormitoryStudentOutRoom",
+        "tags": [
+          "ApiDormitoryStudent"
+        ],
+        "requestBody": {
+          "description": "학생 방에서 퇴실 (학기)",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDormitoryStudentOutRoomRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateDormitoryStudentOutRoomResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -777,6 +845,34 @@
           }
         }
       },
+      "InsertDormitoryStudentInRoomRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          },
+          "roomId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          },
+          "dormitoryStudentSemester": {
+            "type": "integer"
+          }
+        }
+      },
+      "UpdateDormitoryStudentOutRoomRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
+          },
+          "studentId": {
+            "type": "number"
+          }
+        }
+      },
       "InsertDormitoryResponse": {
         "type": "object",
         "properties": {
@@ -903,6 +999,22 @@
             "items": {
               "$ref": "#/components/schemas/RoomInfo"
             }
+          }
+        }
+      },
+      "InsertDormitoryStudentInRoomResponse": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateDormitoryStudentOutRoomResponse": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
           }
         }
       }
