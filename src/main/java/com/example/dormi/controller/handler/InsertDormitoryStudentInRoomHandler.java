@@ -33,6 +33,7 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
     try {
 
       long d_s_id = mapper.insertDormitoryStudentInRoom(dormitoryId, roomId, studentId, dormitoryStudentSemester);
+      mapper.updateRoomCurrentCntByRoomId(roomId, 1);
 
       res.setDormitoryStudentId(d_s_id);
       res.setCode(ResultCode.Success);

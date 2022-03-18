@@ -3,6 +3,7 @@ package com.example.dormi.controller.handler;
 import com.example.dormi.controller.request.*;
 import com.example.dormi.controller.response.*;
 import com.example.dormi.mapper.DormiMapper;
+import com.example.dormi.mapper.vo.DormitoryStudentInfoVo;
 import com.example.dormi.service.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,13 +25,17 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
     final long studentId = req.getStudentId();
 
 //    if(emptyParam(dormitoryStudentId) || emptyParam(studentId)) {
-//      res.setCode(ResultCode.BadParams);
+//      res.setCode(ResultCode.BadParams);\
 //      return res;
 //    }
 
     try {
 
       mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
+      DormitoryStudentInfoVo dormitoryStudentInfoVo = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
+      long roomId = dormitoryStudentInfoVo.getRoomId();
+      System.out.println("roomId = " + roomId);
+      mapper.updateRoomCurrentCntByRoomId(roomId, 2);
 
       res.setCode(ResultCode.Success);
       return res;

@@ -9,7 +9,9 @@ public interface DormiMapper {
 
   long insertDormitoryStudentInRoom(@Param("dormitoryId") long dormitoryId, @Param("roomId") long roomId, @Param("studentId") long studentId, @Param("dormitoryStudentSemester") int dormitoryStudentSemester);
 
-  void updateDormitoryStudentOutRoom(@Param("dormitoryStudentId") long dormitoryStudentId, @Param("studentId") long studentId);
+  long updateDormitoryStudentOutRoom(@Param("dormitoryStudentId") long dormitoryStudentId, @Param("studentId") long studentId);
+
+  DormitoryStudentInfoVo selectDormitoryStudentByDormitoryStudentId(@Param("dormitoryStudentId") long dormitoryStudentId);
 
   long insertDormitory(@Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
 
@@ -40,4 +42,6 @@ public interface DormiMapper {
   RoomInfoVo selectRoomOneByIdNum(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber);
 
   List<RoomInfoVo> selectRoomListByLimitCnt(@Param("roomLimitCnt") int roomLimitCnt);
+
+  long updateRoomCurrentCntByRoomId(@Param("roomId") long roomId, @Param("how") int how);
 }

@@ -16,8 +16,12 @@ public class DormiMapperService {
     return mapper.insertDormitoryStudentInRoom(dormitoryId, roomId, studentId, dormitoryStudentSemester);
   }
 
-  public void updateDormitoryStudentOutRoom(long dormitoryStudentId, long studentId) {
-    mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
+  public long updateDormitoryStudentOutRoom(long dormitoryStudentId, long studentId) {
+    return mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
+  }
+
+  public DormitoryStudentInfoVo selectDormitoryStudentByDormitoryStudentId(long dormitoryStudentId) {
+    return mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
   }
 
   public long insertDormitory(String dormitoryName, String dormitoryAddress) {
@@ -78,5 +82,9 @@ public class DormiMapperService {
 
   public List<RoomInfoVo> selectRoomListByLimitCnt(int roomLimitCnt) {
     return mapper.selectRoomListByLimitCnt(roomLimitCnt);
+  }
+
+  public long updateRoomCurrentCntByRoomId(long roomId, int how) {
+    return mapper.updateRoomCurrentCntByRoomId(roomId, how);
   }
 }
