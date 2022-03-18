@@ -75,7 +75,7 @@
 
  }
 
- query selectDormitoryAll() DormitoryInfoVo[] {
+ query selectDormitoryList() DormitoryInfoVo[] {
 
     SELECT
         dormitory_name,

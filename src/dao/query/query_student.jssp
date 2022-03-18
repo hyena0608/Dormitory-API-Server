@@ -87,7 +87,7 @@ query selectStudentOneByIdHakbun(studentId Long, studentHakbun Long) StudentInfo
 
 }
 
-query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) StudnetInfoVo[] {
+query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) StudentInfoVo[] {
 
     SELECT
         student_hakbun,
@@ -106,5 +106,5 @@ query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) Studnet
         <if test='studentName != null and studentName != ""'>
             student_name = :studentName
         </if>
-        
+
 }

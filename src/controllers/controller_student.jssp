@@ -1,4 +1,4 @@
-define opcode[controller=ApiStudent, base='/api/v1']
+define opcode[controller=ApiStudent, baseURL='/api/v1']
 {
     [method=post, action='student/insert', noauth, overwrite=true]
     insertStudent 3001 '학생 저장'

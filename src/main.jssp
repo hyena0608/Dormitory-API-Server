@@ -2,9 +2,9 @@ import './common/type.jssp';
 import './common/constants.jssp';
 import './common/errors.jssp';
 
-import './dao/tables/tables.jssp';
-import './dao/tables/entities.jssp';
-import './dao/tables/queries.jssp';
+import './dao/table/tables.jssp';
+import './dao/entity/entities.jssp';
+import './dao/query/queries.jssp';
 
 import './struct/structs.jssp';
 import './controllers/controllers.jssp';

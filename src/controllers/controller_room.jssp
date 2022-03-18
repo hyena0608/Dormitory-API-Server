@@ -1,4 +1,4 @@
-define opcode[controller=ApiRoom, base='/api/v1']
+define opcode[controller=ApiRoom, baseURL='/api/v1']
 {
     [method=post, action='room/insert', noauth, overwrite=true]
     insertRoom 2001 '방 저장'
@@ -68,10 +68,10 @@ res selectRoomOneByIdNum {
 /**
  * 2005
  */
-req selectRoomAllByLimitCnt {
+req selectRoomListByLimitCnt {
     roomLimitCnt People;
 }
 
-res selectRoomAllByLimitCnt {
+res selectRoomListByLimitCnt {
     rooms list<RoomInfo>;
 }

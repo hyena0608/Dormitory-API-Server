@@ -74,7 +74,7 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
 
 }
 
-query selectRoomAllByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
+query selectRoomListByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
 
     SELECT
         room_number,

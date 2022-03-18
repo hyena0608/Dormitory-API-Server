@@ -1,4 +1,4 @@
-define opcode[controller=ApiDormitory, base='/api/v1']
+define opcode[controller=ApiDormitory, baseURL='/api/v1']
 {
     [method=post, action='dormitory/insert', noauth, overwrite=true]
     insertDormitory 1001 '기숙사 저장'
@@ -68,8 +68,8 @@ res selectDormitoryOne {
 /**
  * 1005
  */
-req selectDormitoryAll {}
+req selectDormitoryList {}
 
-res selectDormitoryAll {
+res selectDormitoryList {
     dormitories list<DormitoryInfo>
 }

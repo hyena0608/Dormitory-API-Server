@@ -1,4 +1,4 @@
-define opcode[controller=ApiDormitoryStudent, base='/api/v1']
+define opcode[controller=ApiDormitoryStudent, baseURL='/api/v1']
 {
     [method=post, action='dormitorystudent/insert', noauth, overwrite=true]
     insertDormitoryStudentInRoom 4001 '학생 방에 입실 (학기)'

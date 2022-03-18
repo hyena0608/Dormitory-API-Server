@@ -1,4 +1,52 @@
 DELIMITER $$
 
+DROP FUNCTION IF EXISTS Success;
+
+CREATE FUNCTION Success() RETURNS int(11)
+BEGIN
+  -- 성공
+  RETURN 0;
+END;
+
+DROP FUNCTION IF EXISTS Failed;
+
+CREATE FUNCTION Failed() RETURNS int(11)
+BEGIN
+  -- 실패
+  RETURN -1;
+END;
+
+DROP FUNCTION IF EXISTS Unauthorized;
+
+CREATE FUNCTION Unauthorized() RETURNS int(11)
+BEGIN
+  -- Unauthorized
+  RETURN 401;
+END;
+
+DROP FUNCTION IF EXISTS NotFoundUser;
+
+CREATE FUNCTION NotFoundUser() RETURNS int(11)
+BEGIN
+  -- 사용자를 찾을 수 없습니다.
+  RETURN 1000;
+END;
+
+DROP FUNCTION IF EXISTS BadParams;
+
+CREATE FUNCTION BadParams() RETURNS int(11)
+BEGIN
+  -- 파라미터가 유효하지 않습니다.
+  RETURN 10100;
+END;
+
+DROP FUNCTION IF EXISTS DbFailed;
+
+CREATE FUNCTION DbFailed() RETURNS int(11)
+BEGIN
+  -- DB 실패
+  RETURN 99999;
+END;
+
 $$
 DELIMITER ;

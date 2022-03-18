@@ -1,0 +1,908 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Dormi",
+    "description": "Dormi"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "local - server"
+    },
+    {
+      "url": "http://localhost:8080",
+      "description": "test - server"
+    },
+    {
+      "url": "https://localhost:8080",
+      "description": "test - server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ApiDormitory",
+      "description": "ApiDormitory Controller"
+    },
+    {
+      "name": "ApiStudent",
+      "description": "ApiStudent Controller"
+    },
+    {
+      "name": "ApiRoom",
+      "description": "ApiRoom Controller"
+    }
+  ],
+  "paths": {
+    "/api/v1/dormitory/insert": {
+      "post": {
+        "summary": "기숙사 저장",
+        "operationId": "insertDormitory",
+        "tags": [
+          "ApiDormitory"
+        ],
+        "requestBody": {
+          "description": "기숙사 저장",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertDormitoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertDormitoryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dormitory/update": {
+      "post": {
+        "summary": "기숙사 수정",
+        "operationId": "updateDormitory",
+        "tags": [
+          "ApiDormitory"
+        ],
+        "requestBody": {
+          "description": "기숙사 수정",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDormitoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateDormitoryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dormitory/delete": {
+      "post": {
+        "summary": "기숙사 삭제",
+        "operationId": "deleteDormitory",
+        "tags": [
+          "ApiDormitory"
+        ],
+        "requestBody": {
+          "description": "기숙사 삭제",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteDormitoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteDormitoryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dormitory/select": {
+      "get": {
+        "summary": "기숙사 개별 조회",
+        "operationId": "selectDormitoryOne",
+        "tags": [
+          "ApiDormitory"
+        ],
+        "description": "기숙사 개별 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "dormitoryId",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dormitoryName",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectDormitoryOneResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/dormitory/select/list": {
+      "get": {
+        "summary": "기숙사 리스트 조회",
+        "operationId": "selectDormitoryList",
+        "tags": [
+          "ApiDormitory"
+        ],
+        "description": "기숙사 리스트 조회",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectDormitoryListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/student/insert": {
+      "post": {
+        "summary": "학생 저장",
+        "operationId": "insertStudent",
+        "tags": [
+          "ApiStudent"
+        ],
+        "requestBody": {
+          "description": "학생 저장",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertStudentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/student/update": {
+      "post": {
+        "summary": "학생 수정",
+        "operationId": "updateStudent",
+        "tags": [
+          "ApiStudent"
+        ],
+        "requestBody": {
+          "description": "학생 수정",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/student/delete": {
+      "post": {
+        "summary": "학생 삭제",
+        "operationId": "deleteStudent",
+        "tags": [
+          "ApiStudent"
+        ],
+        "requestBody": {
+          "description": "학생 삭제",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteStudentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/student/select": {
+      "get": {
+        "summary": "학생 개별 조회",
+        "operationId": "selectStudentOneByIdHakbun",
+        "tags": [
+          "ApiStudent"
+        ],
+        "description": "학생 개별 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "studentId",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "studentHakbun",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectStudentOneByIdHakbunResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/student/select/list": {
+      "get": {
+        "summary": "학생 리스트 조회",
+        "operationId": "selectStudentListBySexNameAge",
+        "tags": [
+          "ApiStudent"
+        ],
+        "description": "학생 리스트 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "studentSex",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "studentName",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectStudentListBySexNameAgeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/room/insert": {
+      "post": {
+        "summary": "방 저장",
+        "operationId": "insertRoom",
+        "tags": [
+          "ApiRoom"
+        ],
+        "requestBody": {
+          "description": "방 저장",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertRoomRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertRoomResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/room/update": {
+      "post": {
+        "summary": "방 수정",
+        "operationId": "updateRoomLimitCnt",
+        "tags": [
+          "ApiRoom"
+        ],
+        "requestBody": {
+          "description": "방 수정",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoomLimitCntRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateRoomLimitCntResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/room/delete": {
+      "post": {
+        "summary": "방 삭제",
+        "operationId": "deleteRoomByIdNum",
+        "tags": [
+          "ApiRoom"
+        ],
+        "requestBody": {
+          "description": "방 삭제",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRoomByIdNumRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteRoomByIdNumResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/room/select": {
+      "get": {
+        "summary": "방 개별 조회",
+        "operationId": "selectRoomOneByIdNum",
+        "tags": [
+          "ApiRoom"
+        ],
+        "description": "방 개별 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "roomId",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "roomNumber",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectRoomOneByIdNumResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/room/select/list": {
+      "get": {
+        "summary": "방 리스트 조회",
+        "operationId": "selectRoomListByLimitCnt",
+        "tags": [
+          "ApiRoom"
+        ],
+        "description": "방 리스트 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "roomLimitCnt",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectRoomListByLimitCntResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "schemas": {
+      "DormitoryInfo": {
+        "type": "object",
+        "properties": {
+          "dormitoryName": {
+            "type": "string"
+          },
+          "dormitoryAddress": {
+            "type": "string"
+          }
+        }
+      },
+      "StudentInfo": {
+        "type": "object",
+        "properties": {
+          "studentHakbun": {
+            "type": "number"
+          },
+          "studentSex": {
+            "type": "integer"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "studentAge": {
+            "type": "integer"
+          }
+        }
+      },
+      "RoomInfo": {
+        "type": "object",
+        "properties": {
+          "roomNumber": {
+            "type": "number"
+          },
+          "roomLimitCnt": {
+            "type": "integer"
+          },
+          "roomCurrentCnt": {
+            "type": "integer"
+          }
+        }
+      },
+      "InsertDormitoryRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryName": {
+            "type": "string"
+          },
+          "dormitoryAddress": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateDormitoryRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          },
+          "dormitoryName": {
+            "type": "string"
+          },
+          "dormitoryAddress": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteDormitoryRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          },
+          "dormitoryName": {
+            "type": "string"
+          }
+        }
+      },
+      "SelectDormitoryOneRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          },
+          "dormitoryName": {
+            "type": "string"
+          }
+        }
+      },
+      "SelectDormitoryListRequest": {
+        "type": "object",
+        "properties": {}
+      },
+      "InsertStudentRequest": {
+        "type": "object",
+        "properties": {
+          "studentHakbun": {
+            "type": "number"
+          },
+          "studentSex": {
+            "type": "integer"
+          },
+          "student_name": {
+            "type": "string"
+          },
+          "student_age": {
+            "type": "integer"
+          }
+        }
+      },
+      "UpdateStudentRequest": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          },
+          "studentHakbun": {
+            "type": "number"
+          },
+          "studentSex": {
+            "type": "integer"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "studentAge": {
+            "type": "integer"
+          }
+        }
+      },
+      "DeleteStudentRequest": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          },
+          "studentHakbun": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectStudentOneByIdHakbunRequest": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          },
+          "studentHakbun": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectStudentListBySexNameAgeRequest": {
+        "type": "object",
+        "properties": {
+          "studentSex": {
+            "type": "integer"
+          },
+          "studentName": {
+            "type": "string"
+          }
+        }
+      },
+      "InsertRoomRequest": {
+        "type": "object",
+        "properties": {
+          "roomNumber": {
+            "type": "number"
+          },
+          "roomLimitCnt": {
+            "type": "integer"
+          }
+        }
+      },
+      "UpdateRoomLimitCntRequest": {
+        "type": "object",
+        "properties": {
+          "roomId": {
+            "type": "number"
+          },
+          "roomNumber": {
+            "type": "number"
+          },
+          "roomLimitCnt": {
+            "type": "integer"
+          }
+        }
+      },
+      "DeleteRoomByIdNumRequest": {
+        "type": "object",
+        "properties": {
+          "roomId": {
+            "type": "number"
+          },
+          "roomNumber": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectRoomOneByIdNumRequest": {
+        "type": "object",
+        "properties": {
+          "roomId": {
+            "type": "number"
+          },
+          "roomNumber": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectRoomListByLimitCntRequest": {
+        "type": "object",
+        "properties": {
+          "roomLimitCnt": {
+            "type": "integer"
+          }
+        }
+      },
+      "InsertDormitoryResponse": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateDormitoryResponse": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeleteDormitoryResponse": {
+        "type": "object",
+        "properties": {
+          "dormitoryId": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectDormitoryOneResponse": {
+        "type": "object",
+        "properties": {
+          "dormitory": {
+            "$ref": "#/components/schemas/DormitoryInfo"
+          }
+        }
+      },
+      "SelectDormitoryListResponse": {
+        "type": "object",
+        "properties": {
+          "dormitories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DormitoryInfo"
+            }
+          }
+        }
+      },
+      "InsertStudentResponse": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateStudentResponse": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeleteStudentResponse": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectStudentOneByIdHakbunResponse": {
+        "type": "object",
+        "properties": {
+          "studentInfo": {
+            "$ref": "#/components/schemas/StudentInfo"
+          }
+        }
+      },
+      "SelectStudentListBySexNameAgeResponse": {
+        "type": "object",
+        "properties": {
+          "studentInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StudentInfo"
+            }
+          }
+        }
+      },
+      "InsertRoomResponse": {
+        "type": "object",
+        "properties": {
+          "roomdId": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateRoomLimitCntResponse": {
+        "type": "object",
+        "properties": {
+          "roomdId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeleteRoomByIdNumResponse": {
+        "type": "object",
+        "properties": {
+          "roomId": {
+            "type": "number"
+          }
+        }
+      },
+      "SelectRoomOneByIdNumResponse": {
+        "type": "object",
+        "properties": {
+          "room": {
+            "$ref": "#/components/schemas/RoomInfo"
+          }
+        }
+      },
+      "SelectRoomListByLimitCntResponse": {
+        "type": "object",
+        "properties": {
+          "rooms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoomInfo"
+            }
+          }
+        }
+      }
+    }
+  }
+}
