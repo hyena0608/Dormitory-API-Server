@@ -57,12 +57,12 @@ res deleteDormitory {
 /**
  * 1004
  */
-req selectDormitoryOne {
+req selectDormitory {
     dormitoryId Long;
     dormitoryName Name;
 }
 
-res selectDormitoryOne {
+res selectDormitory {
     dormitory DormitoryInfo
 }
 

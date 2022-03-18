@@ -1,0 +1,13 @@
+ query insertDormitory(dormitoryName Name, dormitoryAddress Address) Long {
+    
+    INSERT INTO dormitory(
+        dormitory_name, 
+        dormitory_address
+    ) VALUES (
+        :dormitoryName,
+        :dormitoryAddress
+    )
+
+ }
+
+ query 

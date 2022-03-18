@@ -1,0 +1,24 @@
+ query insertDormitory(dormitoryName Name, dormitoryAddress Address) Long {
+    
+    INSERT INTO dormitory(
+        dormitory_name, 
+        dormitory_address
+    ) VALUES (
+        :dormitoryName,
+        :dormitoryAddress
+    )
+
+ }
+
+ query updateDormitory(dormitoryId Long, dormitoryName Name, dormitoryAddress Address) Long {
+
+    UPDATE dormitory SET
+        <if test='dormitoryName != null and dormitoryName != ""'> 
+            dormitory_name = :dormitoryName
+        </if>
+        <if test='dormitoryAddress != null and dormitoryName != ""'>
+            dormitory_address = :dormitoryAddress
+        </if>
+    
+
+ }

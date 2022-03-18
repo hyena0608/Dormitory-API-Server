@@ -12,9 +12,7 @@
 
  query updateDormitory(dormitoryId Long, dormitoryName Name, dormitoryAddress Address) Long {
 
-    UPDATE 
-        dormitory 
-    SET
+    UPDATE dormitory SET
         <if test='dormitoryName != null and dormitoryName != ""'> 
             dormitory_name = :dormitoryName
         </if>
@@ -27,9 +25,7 @@
 
  query deleteDormitory(dormitoryId Long, dormitoryName Name, dormitoryDeleteDt Timestamp) Long {
 
-    UPDATE 
-        dormitory 
-    SET
+    UPDATE dormitory SET
         dormitory_delete_dt = :dormitoryDeleteDt
     WHERE
         <if test='dormitoryId == null and dormitoryId == ""'>
@@ -55,8 +51,7 @@
     SELECT
         dormitory_name,
         dormitory_address
-    FROM 
-        dormitory
+    FROM dormitory
     WHERE
         <if test='dormitoryId == null and dormitoryId == ""'>
             <if test='dormitoryName != null and dormitoryName != ""'>
@@ -73,15 +68,5 @@
         <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
             dormitory_id = :dormitoryId and dormitory_name = :dormitoryName
         </if>
-
- }
-
- query selectDormitoryAll() DormitoryInfoVo[] {
-
-    SELECT
-        dormitory_name,
-        dormitory_address
-    FROM 
-        dormitory
 
  }
