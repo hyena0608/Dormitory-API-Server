@@ -52,7 +52,7 @@ public class DormiMapperService {
     return mapper.deleteStudent(studentId, studentHakbun);
   }
 
-  public StudentInfoVo selectStudentOneByIdHakbun(long studentId, long studentHakbun) {
+  public StudentInfoVo selectStudentOneByIdHakbun(int studentId, long studentHakbun) {
     return mapper.selectStudentOneByIdHakbun(studentId, studentHakbun);
   }
 

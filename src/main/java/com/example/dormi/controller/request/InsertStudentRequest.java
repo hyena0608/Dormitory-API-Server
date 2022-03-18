@@ -17,8 +17,8 @@ public class InsertStudentRequest {
   private int studentSex;
 
   @ApiParam(value = "null", required = true)
-  private String student_name;
+  private String studentName;
 
   @ApiParam(value = "null", required = true)
-  private int student_age;
+  private int studentAge;
 }

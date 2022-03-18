@@ -21,7 +21,7 @@ public interface DormiMapper {
 
   List<DormitoryInfoVo> selectDormitoryList();
 
-  long insertStudent(@Param("studentHakbun") long studentHakbun, @Param("studentSex") int studentSex, @Param("student_name") String student_name, @Param("student_age") int student_age);
+  long insertStudent(@Param("studentHakbun") long studentHakbun, @Param("studentSex") int studentSex, @Param("studentName") String studentName, @Param("studentAge") int studentAge);
 
   long updateStudent(@Param("studentId") long studentId, @Param("studentHakbun") long studentHakbun, @Param("studentSex") int studentSex, @Param("studentName") String studentName, @Param("studentAge") int studentAge);
 
