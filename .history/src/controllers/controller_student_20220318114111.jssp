@@ -34,11 +34,10 @@ res insertStudent {
  * 3002
  */
 req updateStudent {
-    studentId Long;
     studentHakbun Long;
     studentSex TypeID;
-    studentName Name;
-    studentAge Age;
+    student_name Name;
+    student_age Age;
 }
 
 res updateStudent {
@@ -61,8 +60,8 @@ res deleteStudent {
  * 3004
  */
 req selectStudentOneByIdHakbun {
-    studentId Long;
-    studentHakbun Long;
+    student_id Long;
+    student_hakbun Long;
 }
 
 res selectStudentOneByIdHakbun {
@@ -73,8 +72,9 @@ res selectStudentOneByIdHakbun {
  * 3005
  */
 req selectStudentListBySexNameAge {
-    studentSex TypeID;
-    studentName Name;
+    student_sex TypeID;
+    student_name Name;
+    student_age Age;
 }
 
 res selectStudentListBySexNameAge {

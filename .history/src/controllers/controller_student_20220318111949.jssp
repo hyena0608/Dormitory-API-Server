@@ -1,0 +1,61 @@
+define opcode[controller=ApiStudent, base='/api/v1']
+{
+    [method=post, action='student/insert', noauth, overwrite=true]
+    insertDormitory 1001 '학생 저장'
+
+    [method=post, action='student/update', noauth, overwrite=true]
+    updateDormitory 1002 '학생 수정'
+
+    [method=post, action='student/delete', noauth, overwrite=true]
+    deleteDormitory 1003 '학생 삭제'
+
+    [method=get, action='student/select', noauth, overwrite=true]
+    selectDormitoryOne 1004 '학생 개별 조회'
+
+    [method=get, action='student/select/all', noauth, overwrite=true]
+    selectDormitoryAll 1005 '학생 전체 조회'
+}
+
+/**
+ * 1001
+ */
+req insertDormitory {
+}
+
+res insertDormitory {
+}
+
+/**
+ * 1002
+ */
+req updateDormitory {
+}
+
+res updateDormitory {
+}
+
+/**
+ * 1003
+ */
+req deleteDormitory {
+}
+
+res deleteDormitory {
+}
+
+/**
+ * 1004
+ */
+req selectDormitoryOne {
+}
+
+res selectDormitoryOne {
+}
+
+/**
+ * 1005
+ */
+req selectDormitoryAll {}
+
+res selectDormitoryAll {
+}

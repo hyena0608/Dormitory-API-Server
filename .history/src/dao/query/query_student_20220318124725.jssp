@@ -106,5 +106,8 @@ query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) Studnet
         <if test='studentName != null and studentName != ""'>
             student_name = :studentName
         </if>
+        <if test='studentName != null and studentName != ""'>
+            and student_name = :studentName
+        </if>
         
 }
