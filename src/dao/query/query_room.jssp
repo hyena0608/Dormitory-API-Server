@@ -91,18 +91,18 @@ query selectRoomListByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
 
 }
 
-query updateRoomLimitCntByRoomId(roomId Long, how TypeID) Long {
+query updateRoomCurrentCntByRoomId(roomId Long, how TypeID) Long {
 
     UPDATE
         room
     SET
         room_update_dt = CURRENT_TIMESTAMP,
-        room_limit_cnt
+        room_current_cnt
         <if test='how == 1'>
-            = room_limit_cnt + 1
+            = room_current_cnt + 1
         </if>
         <if test='how == 2'>
-            = room_limit_cnt - 1
+            = room_current_cnt - 1
         </if>
     WHERE
         room_id = :roomId

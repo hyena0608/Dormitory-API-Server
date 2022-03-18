@@ -18,7 +18,7 @@ query insertDormitoryStudentInRoom(dormitoryId Long, roomId Long, studentId Long
 
 }
 
-query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) {
+query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) Long {
 
     UPDATE
         dormitory_student
