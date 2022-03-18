@@ -14,6 +14,6 @@ spring:
 
 mybatis:
   mapper-locations: ./mybatis/mapper/*.xml
-  type-aliases-package: com.example.miniminishop.mapper.vo
+  type-aliases-package: com.example.dormi.mapper.vo
   configuration:
     map-underscore-to-camel-case: true

@@ -1,7 +1,6 @@
 package com.example.dormi.framework.security.jwt;
 
-import com.example.miniminishop.service.UserDetailsServiceImpl;
-//import dev.havencare.homepage.service.UserDetailsServiceImpl;
+import com.example.dormi.service.UserDetailsServiceImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
