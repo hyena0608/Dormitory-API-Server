@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb?severTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+
+mybatis:
+  mapper-locations: ./mybatis/mapper/*.xml
+  type-aliases-package: com.example.miniminishop.mapper.vo
+  configuration:
+    map-underscore-to-camel-case: true
