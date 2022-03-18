@@ -658,10 +658,10 @@
           "studentSex": {
             "type": "integer"
           },
-          "student_name": {
+          "studentName": {
             "type": "string"
           },
-          "student_age": {
+          "studentAge": {
             "type": "integer"
           }
         }

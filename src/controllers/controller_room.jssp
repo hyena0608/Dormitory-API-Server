@@ -1,18 +1,18 @@
 define opcode[controller=ApiRoom, baseURL='/api/v1']
 {
-    [method=post, action='room/insert', noauth, overwrite=true]
+    [method=post, action='room/insert', noauth, overwrite=false]
     insertRoom 2001 '방 저장'
 
-    [method=post, action='room/update', noauth, overwrite=true]
+    [method=post, action='room/update', noauth, overwrite=false]
     updateRoomLimitCnt 2002 '방 수정'
 
-    [method=post, action='room/delete', noauth, overwrite=true]
+    [method=post, action='room/delete', noauth, overwrite=false]
     deleteRoomByIdNum 2003 '방 삭제'
 
-    [method=get, action='room/select', noauth, overwrite=true]
+    [method=get, action='room/select', noauth, overwrite=false]
     selectRoomOneByIdNum 2004 '방 개별 조회'
 
-    [method=get, action='room/select/list', noauth, overwrite=true]
+    [method=get, action='room/select/list', noauth, overwrite=false]
     selectRoomListByLimitCnt 2005 '방 리스트 조회'
 }
 

@@ -1,4 +1,4 @@
-query insertStudent(studentHakbun Long, studentSex TypeID, student_name Name, student_age Age) Long {
+query insertStudent(studentHakbun Long, studentSex TypeID, studentName Name, studentAge Age) Long {
 
     INSERT INTO
         student

@@ -9,7 +9,7 @@ CREATE TABLE student (
   student_age INT NOT NULL,
   student_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   student_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  student_delete_dt TIMESTAMP NOT NULL DEFAULT ''
+  student_delete_dt TIMESTAMP NOT NULL
 );
 
 select "dormitory";
@@ -20,7 +20,7 @@ CREATE TABLE dormitory (
   dormitory_address VARCHAR(64) NOT NULL,
   dormitory_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   dormitory_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  dormitory_delete_dt TIMESTAMP NOT NULL DEFAULT ''
+  dormitory_delete_dt TIMESTAMP NOT NULL
 );
 
 select "room";
@@ -32,7 +32,7 @@ CREATE TABLE room (
   room_current_cnt INT NOT NULL DEFAULT 0,
   room_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   room_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  room_delete_dt TIMESTAMP NOT NULL DEFAULT '',
+  room_delete_dt TIMESTAMP NOT NULL,
   dormitory_id BIGINT NOT NULL
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE dormitory_student (
   dormitory_student_semester INT NOT NULL,
   dormitory_student_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   dormitory_student_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  dormitory_student_delete_dt TIMESTAMP NOT NULL DEFAULT '',
+  dormitory_student_delete_dt TIMESTAMP NOT NULL,
   dormitory_id BIGINT NOT NULL,
   room_id BIGINT NOT NULL,
   student_id BIGINT NOT NULL

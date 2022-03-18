@@ -1,18 +1,18 @@
 define opcode[controller=ApiDormitory, baseURL='/api/v1']
 {
-    [method=post, action='dormitory/insert', noauth, overwrite=true]
+    [method=post, action='dormitory/insert', noauth, overwrite=false]
     insertDormitory 1001 '기숙사 저장'
 
-    [method=post, action='dormitory/update', noauth, overwrite=true]
+    [method=post, action='dormitory/update', noauth, overwrite=false]
     updateDormitory 1002 '기숙사 수정'
 
-    [method=post, action='dormitory/delete', noauth, overwrite=true]
+    [method=post, action='dormitory/delete', noauth, overwrite=false]
     deleteDormitory 1003 '기숙사 삭제'
 
-    [method=get, action='dormitory/select', noauth, overwrite=true]
+    [method=get, action='dormitory/select', noauth, overwrite=false]
     selectDormitoryOne 1004 '기숙사 개별 조회'
 
-    [method=get, action='dormitory/select/list', noauth, overwrite=true]
+    [method=get, action='dormitory/select/list', noauth, overwrite=false]
     selectDormitoryList 1005 '기숙사 리스트 조회'
 }
 

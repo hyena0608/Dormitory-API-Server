@@ -1,18 +1,18 @@
 define opcode[controller=ApiStudent, baseURL='/api/v1']
 {
-    [method=post, action='student/insert', noauth, overwrite=true]
+    [method=post, action='student/insert', noauth, overwrite=false]
     insertStudent 3001 '학생 저장'
 
-    [method=post, action='student/update', noauth, overwrite=true]
+    [method=post, action='student/update', noauth, overwrite=false]
     updateStudent 3002 '학생 수정'
 
-    [method=post, action='student/delete', noauth, overwrite=true]
+    [method=post, action='student/delete', noauth, overwrite=false]
     deleteStudent 3003 '학생 삭제'
 
-    [method=get, action='student/select', noauth, overwrite=true]
+    [method=get, action='student/select', noauth, overwrite=false]
     selectStudentOneByIdHakbun 3004 '학생 개별 조회'
 
-    [method=get, action='student/select/list', noauth, overwrite=true]
+    [method=get, action='student/select/list', noauth, overwrite=false]
     selectStudentListBySexNameAge 3005 '학생 리스트 조회'
 }
 
@@ -22,8 +22,8 @@ define opcode[controller=ApiStudent, baseURL='/api/v1']
 req insertStudent {
     studentHakbun Long;
     studentSex TypeID;
-    student_name Name;
-    student_age Age;
+    studentName Name;
+    studentAge Age;
 }
 
 res insertStudent {
