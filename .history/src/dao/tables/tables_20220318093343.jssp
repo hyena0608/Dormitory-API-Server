@@ -6,10 +6,8 @@ table student {
     student_age Age;
     student_start_dt Timestamp = CURRENT_TIMESTAMP;
     student_delete_dt Timestamp;
-
     key(student_id);
 }
-
 
 table dormitory {
     dormitory_id Long auto;
@@ -17,31 +15,17 @@ table dormitory {
     dormitory_address Address;
     dormitory_start_dt Timestamp = CURRENT_TIMESTAMP;
     dormitory_delete_dt Timestamp;
-
     key(dormitory_id);
 }
-
 
 table room {
     room_id Long auto;
     room_number Long;
     room_limit_cnt People;
     room_current_cnt People;
-    room_start_dt Timestamp = CURRENT_TIMESTAMP;
+    room_start_dt Timestamp;
     room_delete_dt Timestamp;
-
     dormitory_id Long;
     key(room_id);
-}
-
-
-table dormitory_student {
-    dormitory_student_id Long auto;
-    semester TypeID;
-    dormitory_start_dt Timestamp = CURRENT_TIMESTAMP;
-    dormitory_delete_dt Timestamp;
-    
-    dormitory_id Long;
-    student_id Long;
-    key(dormitory_student_id);
+    key2(dormitory_id);
 }

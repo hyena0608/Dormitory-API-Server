@@ -46,8 +46,8 @@ domain JusoCode char(10);
 domain Keyword varchar(64);
 domain Text text;
 
+domain Long bigint;
 domain Sex varchar(2);
 domain Age int;
 domain Timestamp timestamp;
 domain Address varchar(64);
-domain People int;

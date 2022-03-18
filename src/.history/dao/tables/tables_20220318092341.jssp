@@ -1,0 +1,10 @@
+table student {
+  student_id Long auto; // pk
+  student_hakbun Long;
+  student_sex Type;
+  student_name Name;
+  student_age Age;
+  student_start_dt Timestamp = CURRENT_TIMESTAMP;
+  student_delete_dt Timestamp;
+  key(student_id);
+}

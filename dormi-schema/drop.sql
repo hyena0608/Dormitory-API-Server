@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS dormitory_student;
+DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS dormitory;
+DROP TABLE IF EXISTS student;

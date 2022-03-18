@@ -41,7 +41,4 @@ table dormitory_student {
     dormitory_start_dt Timestamp = CURRENT_TIMESTAMP;
     dormitory_delete_dt Timestamp;
     
-    dormitory_id Long;
-    student_id Long;
-    key(dormitory_student_id);
 }

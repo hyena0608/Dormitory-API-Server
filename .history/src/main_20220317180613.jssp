@@ -1,0 +1,95 @@
+import 'type.jssp';
+import 'constants.jssp';
+import 'errors.jssp';
+
+import 'schema/tables.jssp';
+import 'schema/entities.jssp';
+import 'schema/queries.jssp';
+import 'schema/procedures.jssp';
+
+import 'pages/pages.jssp';
+import 'pages/stores.jssp';
+
+import 'controllers/structs.jssp';
+import 'controllers/api.jssp';
+import 'controllers/auth.jssp';
+import 'controllers/test.jssp';
+
+/**
+전역 변수를 설정
+**/
+
+// 프로젝트명
+var projectName = "Dormi";
+
+
+// 테이블 생성시 앞에 붙는 이름
+var prefixTable = 'tb';
+
+// value object 클래스를 생성시 붙는 이름
+var suffixVo = 'Vo';
+
+var [platform=springboot]
+{
+    // springboot 루트 패키지명
+    package="com.coders.demo.api";
+    
+    // default 컨트롤러명
+    controller="Api"; // default controller
+    
+    // default baseURL
+    baseURL="/api/v1";
+    
+    // 쿼리문을 자동으로 생성합니다.
+    generateQuery = true;
+}
+
+var [platform=flutter]
+{
+    // flutter 루트 패키지명 
+    package = "com.coders.demo.app";
+}
+
+var [platform=nodets]
+{
+    // 쿼리문을 자동으로 생성합니다.
+    generateQuery = true;
+}
+
+var [platform=mysql]
+{
+}
+
+var [platform=swagger]
+{
+    name = "swagger"
+    host = 'localhost'
+    port = 8080
+    swaggerVersion = '3.0.0'
+    version = '0.0.1'
+}
+
+var [platform=testjs]
+{
+}
+
+// var [platform=dotnet]
+// {
+// }
+
+var [platform=nodejs]
+{
+}
+
+var [platform=vuejs]
+{
+  generateStore = true;
+  
+  generateRoute = true;
+  
+  useMock = true;
+}
+
+var [platform=vuets]
+{
+}

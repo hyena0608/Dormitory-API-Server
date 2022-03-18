@@ -1,0 +1,24 @@
+table student {
+    student_id Long auto; // pk
+    student_hakbun Long;
+    student_sex Type;
+    student_name Name;
+    student_age Age;
+    student_start_dt Timestamp = CURRENT_TIMESTAMP;
+    student_delete_dt Timestamp;
+    key(student_id);
+}
+
+table dormitory {
+    dormitory_id Long auto;
+    dormitory_name Name;
+    dormitory_address Address;
+    dormitory_start_dt Timestamp = CURRENT_TIMESTAMP;
+    dormitory_delete_dt
+    key(dormitory_id)
+}
+
+table room {
+    room_id Long auto;
+
+}
