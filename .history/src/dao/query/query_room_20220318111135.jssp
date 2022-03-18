@@ -75,15 +75,4 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
 
 query selectRoomAllByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
 
-    SELECT
-        room_number,
-        room_limit_cnt,
-        room_current_cnt
-    FROM
-        room
-    <if test='roomLimitCnt != null and roomLimitCnt != ""'>
-        WHERE
-            room_limit_cnt = :roomLimitCnt
-    </if>
-
 }

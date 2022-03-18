@@ -1,0 +1,3 @@
+struct RoomInfo '방 정보' {
+    roomId
+}

@@ -52,7 +52,7 @@ query deleteRoomByIdNum(roomId Long, roomNumber Long) Long {
 
 }
 
-query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
+query selectRoomOneByIdNum(roomId Long, roomNumber Long) Long {
 
     SELECT
         room_number,
@@ -70,20 +70,5 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
         <if test='roomNumber != null and roomNumber != ""'>
             room_number = :roomNumber
         </if>        
-
-}
-
-query selectRoomAllByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
-
-    SELECT
-        room_number,
-        room_limit_cnt,
-        room_current_cnt
-    FROM
-        room
-    <if test='roomLimitCnt != null and roomLimitCnt != ""'>
-        WHERE
-            room_limit_cnt = :roomLimitCnt
-    </if>
 
 }

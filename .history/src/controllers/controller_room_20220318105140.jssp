@@ -62,16 +62,14 @@ req selectRoomOneByIdNum {
 }
 
 res selectRoomOneByIdNum {
-    room RoomInfo;
+    room Room;
 }
 
 /**
  * 2005
  */
-req selectRoomAllByLimitCnt {
-    roomLimitCnt People;
+req selectRoomAll {
 }
 
-res selectRoomAllByLimitCnt {
-    room list<RoomInfo>;
+res selectRoomAll {
 }

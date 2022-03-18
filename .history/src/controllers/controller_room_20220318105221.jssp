@@ -62,7 +62,7 @@ req selectRoomOneByIdNum {
 }
 
 res selectRoomOneByIdNum {
-    room RoomInfo;
+    room Room;
 }
 
 /**
@@ -73,5 +73,5 @@ req selectRoomAllByLimitCnt {
 }
 
 res selectRoomAllByLimitCnt {
-    room list<RoomInfo>;
+    room list<Room>;
 }

@@ -1,0 +1,50 @@
+define opcode[controller=ApiRoom, base='/api/v1']
+{
+    [method=post, action='room/insert', noauth, overwrite=true]
+    insertDormitory 1001 '기숙사 저장'
+
+    [method=post, action='dormitory/update', noauth, overwrite=true]
+    updateDormitory 1002 '기숙사 수정'
+
+    [method=post, action='dormitory/delete', noauth, overwrite=true]
+    deleteDormitory 1003 '기숙사 삭제'
+
+    [method=get, action='dormitory/select', noauth, overwrite=true]
+    selectDormitory 1004 '기숙사 조회'
+}
+
+/**
+ * 1001
+ */
+req insertDormitory {
+}
+
+res insertDormitory {
+}
+
+/**
+ * 1002
+ */
+req insertDormitory {
+}
+
+res insertDormitory {
+}
+
+/**
+ * 1003
+ */
+req insertDormitory {
+}
+
+res insertDormitory {
+}
+
+/**
+ * 1004
+ */
+req insertDormitory {
+}
+
+res insertDormitory {
+}

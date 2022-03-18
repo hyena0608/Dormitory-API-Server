@@ -1,0 +1,34 @@
+query insertRoom(roomNumber Long, roomLimitCnt People) Long {
+
+    INSERT INTO
+        room
+        (
+            room_number,
+            room_limit_cnt
+        )
+    VALUES
+        (
+            :roomNumber,
+            :roomLimitCnt
+        )
+
+}
+
+query updateRoomLimitCnt(roomId Long, roomNumber Long, roomLimitCnt People) {
+
+    UPDATE
+        room
+    SET
+        room_limit_cnt = :roomLimitCnt
+    WHERE
+        <if test='roomId != null and roomId != ""'> 
+            room_id = :roomId
+        </if>
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
+            and
+        </if>
+        <if test='roomNumber != null and roomNumber != ""'>
+            room_number = :roomNumber
+        </if>
+
+}

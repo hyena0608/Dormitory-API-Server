@@ -39,14 +39,20 @@
     SET
         dormitory_delete_dt = :dormitoryDeleteDt
     WHERE
-        <if test='dormitoryId != null and dormitoryId != ""'> 
-            dormitory_id = :dormitoryId
+        <if test='dormitoryId == null and dormitoryId == ""'>
+            <if test='dormitoryName != null and dormitoryName != ""'>
+                dormitory_name = :dormitoryName
+            </if>
         </if>
-        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'> 
-            and
+
+        <if test='dormitoryName == null or dormitoryName == ""'>
+            <if test='dormitoryId != null and dormitoryId != ""'>
+                dormitory_id = :dormitoryId
+            </if>
         </if>
-        <if test='dormitoryName != null and dormitoryName != ""'>
-            dormitory_name = :dormitoryName
+
+        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
+            dormitory_id = :dormitoryId and dormitory_name = :dormitoryName
         </if>
 
  }

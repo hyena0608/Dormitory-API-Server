@@ -62,7 +62,7 @@ req selectRoomOneByIdNum {
 }
 
 res selectRoomOneByIdNum {
-    room RoomInfo;
+    room Room;
 }
 
 /**

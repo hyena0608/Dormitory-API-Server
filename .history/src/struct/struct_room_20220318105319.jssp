@@ -1,5 +1,5 @@
 struct RoomInfo '방 정보' {
     roomNumber Long;
-    roomLimitCnt People;
-    roomCurrentCnt People;
+    roomLimitCnt Long;
+    roomCurrentCnt Long;
 }

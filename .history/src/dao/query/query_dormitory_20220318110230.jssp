@@ -42,11 +42,11 @@
         <if test='dormitoryId != null and dormitoryId != ""'> 
             dormitory_id = :dormitoryId
         </if>
-        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'> 
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
             and
         </if>
-        <if test='dormitoryName != null and dormitoryName != ""'>
-            dormitory_name = :dormitoryName
+        <if test='roomNumber != null and roomNumber != ""'>
+            room_number = :roomNumber
         </if>
 
  }

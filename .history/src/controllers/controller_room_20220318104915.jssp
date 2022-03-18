@@ -10,10 +10,10 @@ define opcode[controller=ApiRoom, base='/api/v1']
     deleteRoomByIdNum 2003 '방 삭제'
 
     [method=get, action='room/select', noauth, overwrite=true]
-    selectRoomOneByIdNum 2004 '방 개별 조회'
+    selectRoomOneByIdNumLimitcnt 2004 '방 조회'
 
     [method=get, action='room/select/all', noauth, overwrite=true]
-    selectRoomAllByLimitCnt 2005 '방 전체 조회'
+    selectRoomAll 2005 '방 전체 조회'
 }
 
 /**
@@ -45,33 +45,25 @@ res updateRoomLimitCnt {
  * 2003
  */
 req deleteRoomByIdNum {
-    roomId Long;
-    roomNumber Long;
 }
 
 res deleteRoomByIdNum {
-    roomId Long;
 }
 
 /**
  * 2004
  */
-req selectRoomOneByIdNum {
-    roomId Long;
-    roomNumber Long;
+req selectRoomOneByIdNumLimitcnt {
 }
 
-res selectRoomOneByIdNum {
-    room RoomInfo;
+res selectRoomOneByIdNumLimitcnt {
 }
 
 /**
  * 2005
  */
-req selectRoomAllByLimitCnt {
-    roomLimitCnt People;
+req selectRoomAll {
 }
 
-res selectRoomAllByLimitCnt {
-    room list<RoomInfo>;
+res selectRoomAll {
 }

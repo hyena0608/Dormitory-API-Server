@@ -13,7 +13,7 @@ define opcode[controller=ApiRoom, base='/api/v1']
     selectRoomOneByIdNum 2004 '방 개별 조회'
 
     [method=get, action='room/select/all', noauth, overwrite=true]
-    selectRoomAllByLimitCnt 2005 '방 전체 조회'
+    selectRoomAll 2005 '방 전체 조회'
 }
 
 /**
@@ -62,16 +62,13 @@ req selectRoomOneByIdNum {
 }
 
 res selectRoomOneByIdNum {
-    room RoomInfo;
 }
 
 /**
  * 2005
  */
-req selectRoomAllByLimitCnt {
-    roomLimitCnt People;
+req selectRoomAll {
 }
 
-res selectRoomAllByLimitCnt {
-    room list<RoomInfo>;
+res selectRoomAll {
 }
