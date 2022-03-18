@@ -10,10 +10,9 @@ define opcode[controller=ApiDormitory, base='/api/v1']
     deleteDormitory 1003 '기숙사 삭제'
 
     [method=get, action='dormitory/select', noauth, overwrite=true]
-    selectDormitoryOne 1004 '기숙사 개별 조회'
+    selectDormitory 1004 '기숙사 개별 조회'
 
-    [method=get, action='dormitory/select/all', noauth, overwrite=true]
-    selectDormitoryAll 1005 '기숙사 전체 조회'
+    [method=get, action='dormitory/select/all',
 }
 
 /**
@@ -63,13 +62,4 @@ req selectDormitory {
 
 res selectDormitory {
     dormitory DormitoryInfo
-}
-
-/**
- * 1005
- */
-req selectDormitoryAll {}
-
-res selectDormitoryAll {
-    dormitory list<DormitoryInfo>
 }

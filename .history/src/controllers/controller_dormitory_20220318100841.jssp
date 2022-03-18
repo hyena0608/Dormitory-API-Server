@@ -64,12 +64,3 @@ req selectDormitory {
 res selectDormitory {
     dormitory DormitoryInfo
 }
-
-/**
- * 1005
- */
-req selectDormitoryAll {}
-
-res selectDormitoryAll {
-    dormitory list<DormitoryInfo>
-}

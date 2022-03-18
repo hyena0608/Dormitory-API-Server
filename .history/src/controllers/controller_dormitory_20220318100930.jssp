@@ -68,7 +68,10 @@ res selectDormitory {
 /**
  * 1005
  */
-req selectDormitoryAll {}
+req selectDormitoryAll {
+    dormitoryId Long;
+    dormitoryName Name;
+}
 
 res selectDormitoryAll {
     dormitory list<DormitoryInfo>
