@@ -92,6 +92,10 @@ public class DormiMapperService {
     return mapper.insertManager(managerAge, managerName);
   }
 
+  public ManagerInfoVo selectManagerByManagerId(long managerId) {
+    return mapper.selectManagerByManagerId(managerId);
+  }
+
   public long insertPointToStudent(long dormitoryStudentId, long ruleId, long managerId) {
     return mapper.insertPointToStudent(dormitoryStudentId, ruleId, managerId);
   }
@@ -100,11 +104,19 @@ public class DormiMapperService {
     return mapper.deletePointToStudent(pointId);
   }
 
+  public List<PointInfoVo> selectPoint(long dormitoryStudentId) {
+    return mapper.selectPoint(dormitoryStudentId);
+  }
+
   public long insertRule(String ruleContent, int ruleType, int rulePoint) {
     return mapper.insertRule(ruleContent, ruleType, rulePoint);
   }
 
   public long deleteRule(long ruleId) {
     return mapper.deleteRule(ruleId);
+  }
+
+  public RuleInfoVo selectRule(long ruleId) {
+    return mapper.selectRule(ruleId);
   }
 }

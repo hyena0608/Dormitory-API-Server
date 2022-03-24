@@ -47,11 +47,17 @@ public interface DormiMapper {
 
   long insertManager(@Param("managerAge") int managerAge, @Param("managerName") String managerName);
 
+  ManagerInfoVo selectManagerByManagerId(@Param("managerId") long managerId);
+
   long insertPointToStudent(@Param("dormitoryStudentId") long dormitoryStudentId, @Param("ruleId") long ruleId, @Param("managerId") long managerId);
 
   long deletePointToStudent(@Param("pointId") long pointId);
 
+  List<PointInfoVo> selectPoint(@Param("dormitoryStudentId") long dormitoryStudentId);
+
   long insertRule(@Param("ruleContent") String ruleContent, @Param("ruleType") int ruleType, @Param("rulePoint") int rulePoint);
 
   long deleteRule(@Param("ruleId") long ruleId);
+
+  RuleInfoVo selectRule(@Param("ruleId") long ruleId);
 }

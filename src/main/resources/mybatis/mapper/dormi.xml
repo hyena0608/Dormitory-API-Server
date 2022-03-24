@@ -407,6 +407,19 @@
     ]]>
   </insert>
 
+  <select id="selectManagerByManagerId" resultType="ManagerInfoVo">
+    <![CDATA[
+    SELECT
+        manager_id,
+        manager_name,
+        manager_age
+    FROM
+        manager
+    WHERE
+        manager_id = #{managerId}
+    ]]>
+  </select>
+
   <insert id="insertPointToStudent">
     <![CDATA[
     INSERT INTO
@@ -436,6 +449,21 @@
     ]]>
   </update>
 
+  <select id="selectPoint" resultType="PointInfoVo">
+    <![CDATA[
+    SELECT
+        point_id,
+        point_delete_dt,
+        dormitory_start_dt,
+        rule_id,
+        manager_id,
+    FROM
+        point
+    WHERE
+        dormitory_student_id = #{dormitoryStudentId}
+    ]]>
+  </select>
+
   <insert id="insertRule">
     <![CDATA[
     INSERT INTO
@@ -464,4 +492,19 @@
         rule_id = #{ruleId}
     ]]>
   </update>
+
+  <select id="selectRule" resultType="RuleInfoVo">
+    <![CDATA[
+    SELECT
+        rule_id,
+        rule_content,
+        rule_type,
+        rule_point,
+        rule_delete_dt
+    FROM
+        rule
+    WHERE
+        rule_id = #{ruleId}
+    ]]>
+  </select>
 </mapper>
