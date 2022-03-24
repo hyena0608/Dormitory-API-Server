@@ -24,6 +24,7 @@ query updateStudent(studentId Long, studentHakbun Long, studentSex TypeID, stude
         student
     SET
         student_update_dt = CURRENT_TIMESTAMP
+]]>
         <if test='studentSex != null and studentSex != ""'>
             , student_sex = :studentSex
         </if>
@@ -43,6 +44,7 @@ query updateStudent(studentId Long, studentHakbun Long, studentSex TypeID, stude
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = :studentHakbun
         </if>
+<![CDATA[
 
 }
 
@@ -53,6 +55,7 @@ query deleteStudent(studentId Long, studentHakbun Long) Long {
     SET
         student_delete_dt = CURRENT_TIMESTAMP
     WHERE
+]]>
         <if test='studentId != null and studentId != ""'> 
             student_id = :studentId
         </if>
@@ -62,6 +65,7 @@ query deleteStudent(studentId Long, studentHakbun Long) Long {
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = :studentHakbun
         </if>
+<![CDATA[
 
 }
 
@@ -75,6 +79,7 @@ query selectStudentOneByIdHakbun(studentId Long, studentHakbun Long) StudentInfo
     FROM
         student
     WHERE
+]]>
         <if test='studentId != null and studentId != ""'> 
             student_id = :studentId
         </if>
@@ -84,6 +89,7 @@ query selectStudentOneByIdHakbun(studentId Long, studentHakbun Long) StudentInfo
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = :studentHakbun
         </if>
+<![CDATA[
 
 }
 
@@ -97,6 +103,7 @@ query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) Student
     FROM
         student
     WHERE
+]]>
         <if test='studentSex != null and studentSex != ""'> 
             student_sex = :studentSex
         </if>
@@ -106,5 +113,6 @@ query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) Student
         <if test='studentName != null and studentName != ""'>
             student_name = :studentName
         </if>
+<![CDATA[
 
 }

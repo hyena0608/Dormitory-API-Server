@@ -1,0 +1,32 @@
+define opcode[controller=ApiPoint, baseURL='/api/v1']
+{
+    [method=post, action='point/insert', noauth, overwrite=true]
+    insertPointToStudent 7001 '학생 점수 부여'
+
+    [method=post, action='point/delete', noauth, overwrite=false]
+    deletePointToStudent 7002 '학생 점수 취소'
+}
+
+/**
+ * 7001
+ */
+req insertPointToStudent {
+    dormitoryStudentId Long;
+    ruleId Long;
+    managerId Long;
+}
+
+res insertPointToStudent {
+    pointId Long;
+}
+
+/**
+ * 7002
+ */
+req deletePointToStudent {
+    pointId Long;
+}
+
+res deletePointToStudent {
+    pointId Long;
+}

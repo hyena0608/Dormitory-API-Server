@@ -51,3 +51,4 @@ domain Age int;
 domain Timestamp timestamp;
 domain Address varchar(64);
 domain People int;
+domain Point int;

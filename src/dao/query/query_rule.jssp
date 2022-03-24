@@ -1,0 +1,28 @@
+query insertRule(ruleContent Content, ruleType TypeID, rulePoint Point) Long {
+
+    INSERT INTO
+        rule
+        (
+            rule_content,
+            rule_type,
+            rule_point
+        )
+    VALUES
+        (
+            :ruleContent,
+            :ruleType,
+            :rulePoint
+        )
+
+}
+
+query deleteRule(ruleId Long) Long {
+
+    UPDATE
+        rule
+    SET
+        rule_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        rule_id = :ruleId
+
+}

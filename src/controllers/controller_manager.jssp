@@ -1,0 +1,17 @@
+define opcode[controller=ApiManager, baseURL='/api/v1']
+{
+    [method=post, action='manager/insert', noauth, overwrite=false]
+    insertManager 5001 '관리자 등록'
+}
+
+/**
+ * 5001
+ */
+req insertManager {
+    managerAge Age;
+    managerName Name;
+}
+
+res insertManager {
+    managerId Long;
+}

@@ -1,0 +1,32 @@
+define opcode[controller=ApiRule, baseURL='/api/v1']
+{
+    [method=post, action='rule/insert', noauth, overwrite=false]
+    insertRule 6001 '규칙 추가'
+
+    [method=post, action='rule/delete', noauth, overwrite=false]
+    deleteRule 6002 '규칙 삭제'
+}
+
+/**
+ * 6001
+ */
+req insertRule {
+    ruleContent Content;
+    ruleType TypeID;
+    rulePoint Point;
+}
+
+res insertRule {
+    ruleId Long;
+}
+
+/**
+ * 6002
+ */
+req deleteRule {
+    ruleId Long;
+}
+
+res deleteRule {
+    ruleId Long;
+}

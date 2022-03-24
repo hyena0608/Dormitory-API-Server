@@ -35,6 +35,18 @@
     {
       "name": "ApiDormitoryStudent",
       "description": "ApiDormitoryStudent Controller"
+    },
+    {
+      "name": "ApiManager",
+      "description": "ApiManager Controller"
+    },
+    {
+      "name": "ApiRule",
+      "description": "ApiRule Controller"
+    },
+    {
+      "name": "ApiPoint",
+      "description": "ApiPoint Controller"
     }
   ],
   "paths": {
@@ -613,6 +625,166 @@
           }
         }
       }
+    },
+    "/api/v1/manager/insert": {
+      "post": {
+        "summary": "관리자 등록",
+        "operationId": "insertManager",
+        "tags": [
+          "ApiManager"
+        ],
+        "requestBody": {
+          "description": "관리자 등록",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertManagerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertManagerResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/rule/insert": {
+      "post": {
+        "summary": "규칙 추가",
+        "operationId": "insertRule",
+        "tags": [
+          "ApiRule"
+        ],
+        "requestBody": {
+          "description": "규칙 추가",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertRuleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertRuleResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/rule/delete": {
+      "post": {
+        "summary": "규칙 삭제",
+        "operationId": "deleteRule",
+        "tags": [
+          "ApiRule"
+        ],
+        "requestBody": {
+          "description": "규칙 삭제",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRuleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteRuleResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/point/insert": {
+      "post": {
+        "summary": "학생 점수 부여",
+        "operationId": "insertPointToStudent",
+        "tags": [
+          "ApiPoint"
+        ],
+        "requestBody": {
+          "description": "학생 점수 부여",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertPointToStudentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsertPointToStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/point/delete": {
+      "post": {
+        "summary": "학생 점수 취소",
+        "operationId": "deletePointToStudent",
+        "tags": [
+          "ApiPoint"
+        ],
+        "requestBody": {
+          "description": "학생 점수 취소",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeletePointToStudentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletePointToStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -893,6 +1065,61 @@
           }
         }
       },
+      "InsertManagerRequest": {
+        "type": "object",
+        "properties": {
+          "managerAge": {
+            "type": "integer"
+          },
+          "managerName": {
+            "type": "string"
+          }
+        }
+      },
+      "InsertRuleRequest": {
+        "type": "object",
+        "properties": {
+          "ruleContent": {
+            "type": "string"
+          },
+          "ruleType": {
+            "type": "integer"
+          },
+          "rulePoint": {
+            "type": "integer"
+          }
+        }
+      },
+      "DeleteRuleRequest": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "number"
+          }
+        }
+      },
+      "InsertPointToStudentRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
+          },
+          "ruleId": {
+            "type": "number"
+          },
+          "managerId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeletePointToStudentRequest": {
+        "type": "object",
+        "properties": {
+          "pointId": {
+            "type": "number"
+          }
+        }
+      },
       "InsertDormitoryResponse": {
         "type": "object",
         "properties": {
@@ -1034,6 +1261,46 @@
         "type": "object",
         "properties": {
           "dormitoryStudentId": {
+            "type": "number"
+          }
+        }
+      },
+      "InsertManagerResponse": {
+        "type": "object",
+        "properties": {
+          "managerId": {
+            "type": "number"
+          }
+        }
+      },
+      "InsertRuleResponse": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeleteRuleResponse": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "number"
+          }
+        }
+      },
+      "InsertPointToStudentResponse": {
+        "type": "object",
+        "properties": {
+          "pointId": {
+            "type": "number"
+          }
+        }
+      },
+      "DeletePointToStudentResponse": {
+        "type": "object",
+        "properties": {
+          "pointId": {
             "type": "number"
           }
         }

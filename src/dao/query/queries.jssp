@@ -2,3 +2,6 @@ import './query_dormitory_student.jssp';
 import './query_dormitory.jssp';
 import './query_student.jssp';
 import './query_room.jssp';
+import './query_manager.jssp';
+import './query_point.jssp';
+import './query_rule.jssp';

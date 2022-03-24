@@ -1,0 +1,15 @@
+query insertManager(managerAge Age, managerName Name) Long {
+
+    INSERT INTO
+        manager
+        (
+            manager_age,
+            manager_name
+        )
+    VALUES
+        (
+            :managerAge,
+            :managerName
+        )
+
+}

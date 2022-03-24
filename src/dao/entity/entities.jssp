@@ -2,3 +2,6 @@ import './entity_dormitory_student.jssp';
 import './entity_dormitory.jssp';
 import './entity_student.jssp';
 import './entity_room.jssp';
+import './entity_manager.jssp';
+import './entity_point.jssp';
+import './entity_rule.jssp';

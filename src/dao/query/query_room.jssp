@@ -24,6 +24,7 @@ query updateRoomLimitCnt(roomId Long, roomNumber Long, roomLimitCnt People) Long
         room_update_dt = CURRENT_TIMESTAMP,
         room_limit_cnt = :roomLimitCnt
     WHERE
+]]>
         <if test='roomId != null and roomId != ""'> 
             room_id = :roomId
         </if>
@@ -33,6 +34,7 @@ query updateRoomLimitCnt(roomId Long, roomNumber Long, roomLimitCnt People) Long
         <if test='roomNumber != null and roomNumber != ""'>
             room_number = :roomNumber
         </if>
+<![CDATA[
 
 }
 
@@ -43,6 +45,7 @@ query deleteRoomByIdNum(roomId Long, roomNumber Long) Long {
     SET
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
+]]>
         <if test='roomId != null and roomId != ""'> 
             room_id = :roomId
         </if>
@@ -52,6 +55,7 @@ query deleteRoomByIdNum(roomId Long, roomNumber Long) Long {
         <if test='roomNumber != null and roomNumber != ""'>
             room_number = :roomNumber
         </if>
+<![CDATA[
 
 }
 
@@ -64,6 +68,7 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
     FROM
         room
     WHERE
+]]>
         <if test='roomId != null and roomId != ""'> 
             room_id = :roomId
         </if>
@@ -72,7 +77,8 @@ query selectRoomOneByIdNum(roomId Long, roomNumber Long) RoomInfoVo {
         </if>
         <if test='roomNumber != 0'>
             room_number = :roomNumber
-        </if>        
+        </if>   
+<![CDATA[     
 
 }
 
@@ -84,10 +90,13 @@ query selectRoomListByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
         room_current_cnt
     FROM
         room
+]]>
     <if test='roomLimitCnt != null and roomLimitCnt != ""'>
     WHERE
         room_limit_cnt = :roomLimitCnt
     </if>
+<![CDATA[
+
 
 }
 
@@ -98,6 +107,7 @@ query updateRoomCurrentCntByRoomId(roomId Long, how TypeID) Long {
     SET
         room_update_dt = CURRENT_TIMESTAMP,
         room_current_cnt
+]]>
         <if test='how == 1'>
             = room_current_cnt + 1
         </if>
@@ -106,4 +116,6 @@ query updateRoomCurrentCntByRoomId(roomId Long, how TypeID) Long {
         </if>
     WHERE
         room_id = :roomId
+<![CDATA[
+
 }

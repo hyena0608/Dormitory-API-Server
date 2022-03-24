@@ -2,3 +2,6 @@ import './controller_dormitory.jssp';
 import './controller_student.jssp';
 import './controller_room.jssp';
 import './controller_dormitory_student.jssp';
+import './controller_manager.jssp';
+import './controller_rule.jssp';
+import './controller_point.jssp';

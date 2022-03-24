@@ -20,12 +20,14 @@
         dormitory 
     SET
         dormitory_update_dt = CURRENT_TIMESTAMP
+]]>
         <if test='dormitoryName != null and dormitoryName != ""'> 
             , dormitory_name = :dormitoryName
         </if>
         <if test='dormitoryAddress != null and dormitoryName != ""'>
             , dormitory_address = :dormitoryAddress
         </if>
+<![CDATA[
     WHERE dormitory_id = :dormitoryId
 
  }
@@ -37,6 +39,7 @@
     SET
         dormitory_delete_dt = CURRENT_TIMESTAMP
     WHERE
+]]>
         <if test='dormitoryId != null and dormitoryId != ""'> 
             dormitory_id = :dormitoryId
         </if>
@@ -46,6 +49,8 @@
         <if test='dormitoryName != null and dormitoryName != ""'>
             dormitory_name = :dormitoryName
         </if>
+<![CDATA[
+
 
  }
 
@@ -57,6 +62,7 @@
     FROM 
         dormitory
     WHERE
+]]>
         <if test='dormitoryId == null and dormitoryId == ""'>
             <if test='dormitoryName != null and dormitoryName != ""'>
                 dormitory_name = :dormitoryName
@@ -72,6 +78,7 @@
         <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
             dormitory_id = :dormitoryId and dormitory_name = :dormitoryName
         </if>
+<![CDATA[
 
  }
 

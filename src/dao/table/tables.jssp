@@ -50,3 +50,39 @@ table dormitory_student {
     student_id Long;
     key(dormitory_student_id);
 }
+
+table manager {
+    manager_id Long auto;
+    manager_name Name;
+    manager_age Age;
+    manager_start_dt Timestamp = CURRENT_TIMESTAMP;
+    manager_update_dt Timestamp = CURRENT_TIMESTAMP;
+    manager_delete_dt Timestamp;
+
+    key(manager_id);
+}
+
+table rule {
+    rule_id Long auto;
+    rule_content Content;
+    rule_type TypeID;
+    rule_point Point;
+    rule_start_dt Timestamp = CURRENT_TIMESTAMP;
+    rule_update_dt Timestamp = CURRENT_TIMESTAMP;
+    rule_delete_dt Timestamp;
+
+    key(rule_id);
+}
+
+table point {
+    point_id Long auto;
+    point_start_dt Timestamp = CURRENT_TIMESTAMP;
+    point_update_dt Timestamp = CURRENT_TIMESTAMP;
+    point_delete_dt Timestamp;
+
+    dormitory_student_id Long;
+    rule_id Long;
+    manager_id Long;
+
+    key(point_id);
+}

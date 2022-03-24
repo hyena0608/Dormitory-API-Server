@@ -1,0 +1,28 @@
+query insertPointToStudent(dormitoryStudentId Long, ruleId Long, managerId Long) Long {
+
+    INSERT INTO
+        point
+        (
+            dormitory_student_id,
+            rule_id,
+            manager_id
+        )
+    VALUES
+        (
+            :dormitoryStudentId,
+            :ruleId,
+            :managerId
+        )
+
+}
+
+query deletePointToStudent(pointId Long) Long {
+
+    UPDATE
+        point
+    SET
+        point_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        point_id = :pointId
+
+}

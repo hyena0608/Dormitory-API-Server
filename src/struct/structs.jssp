@@ -2,3 +2,6 @@ import './struct_dormitory_student.jssp';
 import './struct_dormitory.jssp';
 import './struct_student.jssp';
 import './struct_room.jssp';
+import './struct_manager.jssp';
+import './struct_point.jssp';
+import './struct_rule.jssp';

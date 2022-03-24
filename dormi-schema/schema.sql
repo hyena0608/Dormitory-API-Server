@@ -48,3 +48,38 @@ CREATE TABLE dormitory_student (
   room_id BIGINT NOT NULL,
   student_id BIGINT NOT NULL
 );
+
+select "manager";
+
+CREATE TABLE manager (
+  manager_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  manager_name VARCHAR(64) NOT NULL,
+  manager_age INT NOT NULL,
+  manager_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  manager_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  manager_delete_dt TIMESTAMP NOT NULL
+);
+
+select "rule";
+
+CREATE TABLE rule (
+  rule_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  rule_content VARCHAR(2000) NOT NULL,
+  rule_type INT NOT NULL,
+  rule_point INT NOT NULL,
+  rule_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  rule_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  rule_delete_dt TIMESTAMP NOT NULL
+);
+
+select "point";
+
+CREATE TABLE point (
+  point_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  point_start_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  point_update_dt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  point_delete_dt TIMESTAMP NOT NULL,
+  dormitory_student_id BIGINT NOT NULL,
+  rule_id BIGINT NOT NULL,
+  manager_id BIGINT NOT NULL
+);

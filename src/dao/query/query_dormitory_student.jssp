@@ -19,12 +19,12 @@ query insertDormitoryStudentInRoom(dormitoryId Long, roomId Long, studentId Long
 }
 
 query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) Long {
-
     UPDATE
         dormitory_student
     SET
         dormitory_student_delete_dt = CURRENT_TIMESTAMP
     WHERE
+]]>
         <if test='dormitoryStudentId != null and dormitoryStudentId != ""'> 
             dormitory_student_id = :dormitoryStudentId
         </if>
@@ -34,7 +34,7 @@ query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) Lon
         <if test='studentId != null and studentId != ""'>
             student_id = :studentId
         </if>
-        
+<![CDATA[
 }
 
 query selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId Long) DormitoryStudentInfoVo {
