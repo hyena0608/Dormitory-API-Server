@@ -3,6 +3,7 @@ package com.example.dormi.mapper.vo;
 import lombok.Data;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 @Data
 public class RuleInfoVo {
@@ -15,5 +16,5 @@ public class RuleInfoVo {
 
   public int rulePoint;
 
-  public  ruleDeleteDt;
+  public LocalDate ruleDeleteDt;
 }

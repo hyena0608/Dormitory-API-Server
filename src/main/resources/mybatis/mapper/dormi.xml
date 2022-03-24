@@ -454,9 +454,9 @@
     SELECT
         point_id,
         point_delete_dt,
-        dormitory_start_dt,
+        dormitory_student_id,
         rule_id,
-        manager_id,
+        manager_id
     FROM
         point
     WHERE
