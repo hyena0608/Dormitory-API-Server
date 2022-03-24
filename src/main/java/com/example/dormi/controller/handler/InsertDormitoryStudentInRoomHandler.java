@@ -43,18 +43,18 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
     }
   }
 
-  
+
   /**
    * 방 제한인원과 현 인원 비교 메서드
    */
-  private void roomCurrentCount(InsertDormitoryStudentInRoomResponse res, long roomId, long d_s_id) {
+  private void roomCurrentCount(InsertDormitoryStudentInRoomResponse res, long roomId, long dormitoryStudentId) {
     RoomInfoVo roomInfoVo = mapper.selectRoomOneByIdNum(roomId, 0);
     int roomLimitCnt = roomInfoVo.getRoomLimitCnt();
     int roomCurrentCnt = roomInfoVo.getRoomCurrentCnt();
     if (roomLimitCnt > roomCurrentCnt) {
       mapper.updateRoomCurrentCntByRoomId(roomId, 1);
       res.setCode(ResultCode.Success);
-      res.setDormitoryStudentId(d_s_id);
+      res.setDormitoryStudentId(dormitoryStudentId);
     }
     else res.setCode(ResultCode.PeopleCntError);
   }
