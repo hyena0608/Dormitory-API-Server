@@ -34,7 +34,7 @@ public class InsertPointToStudentHandler extends BaseHandler {
 
         try {
 
-            if (isAllExists(dormitoryStudentId, ruleId, managerId)) {
+            if (!isAllExists(dormitoryStudentId, ruleId, managerId)) {
                 res.setCode(ResultCode.Failed);
                 return res;
             }
@@ -64,8 +64,9 @@ public class InsertPointToStudentHandler extends BaseHandler {
     }
 
     private boolean isAllExists(long dormitoryStudentId, long ruleId, long managerId) {
-        return mapper.selectManagerByManagerId(managerId) != null &&
-            mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId) != null &&
-            mapper.selectRule(ruleId) != null;
+        return mapper.selectManagerByManagerId(managerId).getManagerId() == managerId &&
+                mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId)
+                        .getDormitoryStudentId() == dormitoryStudentId &&
+                mapper.selectRule(ruleId).getRuleId() == ruleId;
     }
 }

@@ -3,8 +3,6 @@ package com.example.dormi.controller.vo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
-
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.sql.Date;
@@ -21,6 +19,4 @@ public class PointInfo {
   public long ruleId = 0;
 
   public long managerId = 0;
-
-  public LocalDate pointDeleteDt;
 }

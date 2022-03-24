@@ -12,9 +12,9 @@ import java.sql.Time;
 @Data
 public class ManagerInfo {
 
-  public long manager_id = 0;
+  public long managerId = 0;
 
-  public String manager_name = "";
+  public String managerName = "";
 
-  public int manager_age = 0;
+  public int managerAge = 0;
 }

@@ -17,6 +17,4 @@ public class RuleInfo {
   public String ruleContent = "";
 
   public int ruleType = 0;
-
-  public int rulePoint = 0;
 }

@@ -453,7 +453,6 @@
     <![CDATA[
     SELECT
         point_id,
-        point_delete_dt,
         dormitory_student_id,
         rule_id,
         manager_id
@@ -499,8 +498,7 @@
         rule_id,
         rule_content,
         rule_type,
-        rule_point,
-        rule_delete_dt
+        rule_point
     FROM
         rule
     WHERE
