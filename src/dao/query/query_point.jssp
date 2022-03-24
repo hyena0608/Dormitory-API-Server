@@ -26,3 +26,17 @@ query deletePointToStudent(pointId Long) Long {
         point_id = :pointId
 
 }
+
+query selectPoint(dormitoryStudentId Long) PointInfoVo[] {
+
+    SELECT
+        point_id,
+        dormitory_student_id,
+        rule_id,
+        manager_id
+    FROM
+        point
+    WHERE
+        dormitory_student_id = :dormitoryStudentId
+
+}

@@ -1,0 +1,5 @@
+entity ManagerInfoVo '관리자 정보' {
+    managerId Long;
+    managerName Name;
+    managerAge Age;
+}

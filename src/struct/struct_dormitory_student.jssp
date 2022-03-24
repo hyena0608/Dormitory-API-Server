@@ -5,5 +5,4 @@ struct dormitoryStudentInfo '기숙학생 정보' {
     dormitoryId Long;
     roomId Long;
     studentId Long;
-
 }

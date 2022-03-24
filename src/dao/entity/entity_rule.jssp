@@ -1,0 +1,6 @@
+entity RuleInfoVo '규칙 정보' {
+    ruleId Long;
+    ruleContent Content;
+    rulueType TypeID;
+    rulePoint Point;
+}

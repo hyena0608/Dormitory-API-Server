@@ -26,3 +26,17 @@ query deleteRule(ruleId Long) Long {
         rule_id = :ruleId
 
 }
+
+query selectRule(ruleId Long) RuleInfoVo {
+
+    SELECT
+        rule_id,
+        rule_content,
+        rule_type,
+        rule_point
+    FROM
+        rule
+    WHERE
+        rule_id = :ruleId
+
+}

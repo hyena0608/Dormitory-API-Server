@@ -1,6 +1,6 @@
 define opcode[controller=ApiPoint, baseURL='/api/v1']
 {
-    [method=post, action='point/insert', noauth, overwrite=true]
+    [method=post, action='point/insert', noauth, overwrite=false]
     insertPointToStudent 7001 '학생 점수 부여'
 
     [method=post, action='point/delete', noauth, overwrite=false]

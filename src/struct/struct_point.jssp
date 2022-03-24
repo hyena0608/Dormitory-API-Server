@@ -1,0 +1,7 @@
+struct PointInfo '상/벌점 정보' {
+    pointId Long;
+
+    dormitoryStudentId Long;
+    ruleId Long;
+    managerId Long;
+}

@@ -858,6 +858,51 @@
           }
         }
       },
+      "ManagerInfo": {
+        "type": "object",
+        "properties": {
+          "managerId": {
+            "type": "number"
+          },
+          "managerName": {
+            "type": "string"
+          },
+          "managerAge": {
+            "type": "integer"
+          }
+        }
+      },
+      "PointInfo": {
+        "type": "object",
+        "properties": {
+          "pointId": {
+            "type": "number"
+          },
+          "dormitoryStudentId": {
+            "type": "number"
+          },
+          "ruleId": {
+            "type": "number"
+          },
+          "managerId": {
+            "type": "number"
+          }
+        }
+      },
+      "RuleInfo": {
+        "type": "object",
+        "properties": {
+          "ruleId": {
+            "type": "number"
+          },
+          "ruleContent": {
+            "type": "string"
+          },
+          "ruleType": {
+            "type": "integer"
+          }
+        }
+      },
       "InsertDormitoryRequest": {
         "type": "object",
         "properties": {

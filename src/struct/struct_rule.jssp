@@ -1,0 +1,5 @@
+struct RuleInfo '규칙 정보' {
+    ruleId Long;
+    ruleContent Content;
+    ruleType TypeID;
+}

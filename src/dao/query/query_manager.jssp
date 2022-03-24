@@ -13,3 +13,16 @@ query insertManager(managerAge Age, managerName Name) Long {
         )
 
 }
+
+query selectManagerByManagerId(managerId Long) ManagerInfoVo {
+
+    SELECT
+        manager_id,
+        manager_name,
+        manager_age
+    FROM
+        manager
+    WHERE
+        manager_id = :managerId
+
+}
