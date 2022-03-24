@@ -44,4 +44,14 @@ public interface DormiMapper {
   List<RoomInfoVo> selectRoomListByLimitCnt(@Param("roomLimitCnt") int roomLimitCnt);
 
   long updateRoomCurrentCntByRoomId(@Param("roomId") long roomId, @Param("how") int how);
+
+  long insertManager(@Param("managerAge") int managerAge, @Param("managerName") String managerName);
+
+  long insertPointToStudent(@Param("dormitoryStudentId") long dormitoryStudentId, @Param("ruleId") long ruleId, @Param("managerId") long managerId);
+
+  long deletePointToStudent(@Param("pointId") long pointId);
+
+  long insertRule(@Param("ruleContent") String ruleContent, @Param("ruleType") int ruleType, @Param("rulePoint") int rulePoint);
+
+  long deleteRule(@Param("ruleId") long ruleId);
 }

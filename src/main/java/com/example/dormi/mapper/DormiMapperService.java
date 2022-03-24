@@ -87,4 +87,24 @@ public class DormiMapperService {
   public long updateRoomCurrentCntByRoomId(long roomId, int how) {
     return mapper.updateRoomCurrentCntByRoomId(roomId, how);
   }
+
+  public long insertManager(int managerAge, String managerName) {
+    return mapper.insertManager(managerAge, managerName);
+  }
+
+  public long insertPointToStudent(long dormitoryStudentId, long ruleId, long managerId) {
+    return mapper.insertPointToStudent(dormitoryStudentId, ruleId, managerId);
+  }
+
+  public long deletePointToStudent(long pointId) {
+    return mapper.deletePointToStudent(pointId);
+  }
+
+  public long insertRule(String ruleContent, int ruleType, int rulePoint) {
+    return mapper.insertRule(ruleContent, ruleType, rulePoint);
+  }
+
+  public long deleteRule(long ruleId) {
+    return mapper.deleteRule(ruleId);
+  }
 }

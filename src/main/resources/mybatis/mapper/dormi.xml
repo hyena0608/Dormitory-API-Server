@@ -3,6 +3,7 @@
 <mapper namespace="com.example.dormi.mapper.DormiMapper">
 
   <insert id="insertDormitoryStudentInRoom">
+    <![CDATA[
     INSERT INTO
         dormitory_student
         (
@@ -18,26 +19,32 @@
             #{studentId},
             #{dormitoryStudentSemester}
         )
+    ]]>
   </insert>
 
   <update id="updateDormitoryStudentOutRoom">
+    <![CDATA[
     UPDATE
         dormitory_student
     SET
         dormitory_student_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'>
+]]>
+        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'> 
             dormitory_student_id = #{dormitoryStudentId}
         </if>
-        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'>
+        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'> 
             and
         </if>
         <if test='studentId != null and studentId != ""'>
             student_id = #{studentId}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <select id="selectDormitoryStudentByDormitoryStudentId" resultType="DormitoryStudentInfoVo">
+    <![CDATA[
     SELECT
         dormitory_student_id,
         dormitory_student_semester,
@@ -48,60 +55,73 @@
         dormitory_student
     WHERE
         dormitory_student_id = #{dormitoryStudentId}
+    ]]>
   </select>
 
   <insert id="insertDormitory">
-    INSERT INTO
+    <![CDATA[
+    INSERT INTO 
         dormitory
         (
-            dormitory_name,
+            dormitory_name, 
             dormitory_address
-        )
-    VALUES
+        ) 
+    VALUES 
         (
             #{dormitoryName},
             #{dormitoryAddress}
         )
+    ]]>
   </insert>
 
   <update id="updateDormitory">
-    UPDATE
-        dormitory
+    <![CDATA[
+    UPDATE 
+        dormitory 
     SET
         dormitory_update_dt = CURRENT_TIMESTAMP
-        <if test='dormitoryName != null and dormitoryName != ""'>
+]]>
+        <if test='dormitoryName != null and dormitoryName != ""'> 
             , dormitory_name = #{dormitoryName}
         </if>
         <if test='dormitoryAddress != null and dormitoryName != ""'>
             , dormitory_address = #{dormitoryAddress}
         </if>
+<![CDATA[
     WHERE dormitory_id = #{dormitoryId}
+    ]]>
   </update>
 
   <update id="deleteDormitory">
-    UPDATE
-        dormitory
+    <![CDATA[
+    UPDATE 
+        dormitory 
     SET
         dormitory_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='dormitoryId != null and dormitoryId != ""'>
+]]>
+        <if test='dormitoryId != null and dormitoryId != ""'> 
             dormitory_id = #{dormitoryId}
         </if>
-        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
+        <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'> 
             and
         </if>
         <if test='dormitoryName != null and dormitoryName != ""'>
             dormitory_name = #{dormitoryName}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <select id="selectDormitoryOne" resultType="DormitoryInfoVo">
+    <![CDATA[
     SELECT
         dormitory_name,
         dormitory_address
-    FROM
+    FROM 
         dormitory
     WHERE
+]]>
         <if test='dormitoryId == null and dormitoryId == ""'>
             <if test='dormitoryName != null and dormitoryName != ""'>
                 dormitory_name = #{dormitoryName}
@@ -117,17 +137,22 @@
         <if test='dormitoryId != null and dormitoryId != "" and dormitoryName != null and dormitoryName != ""'>
             dormitory_id = #{dormitoryId} and dormitory_name = #{dormitoryName}
         </if>
+<![CDATA[
+    ]]>
   </select>
 
   <select id="selectDormitoryList" resultType="DormitoryInfoVo">
+    <![CDATA[
     SELECT
         dormitory_name,
         dormitory_address
-    FROM
+    FROM 
         dormitory
+    ]]>
   </select>
 
   <insert id="insertStudent">
+    <![CDATA[
     INSERT INTO
         student
         (
@@ -143,13 +168,16 @@
             #{studentName},
             #{studentAge}
         )
+    ]]>
   </insert>
 
   <update id="updateStudent">
+    <![CDATA[
     UPDATE
         student
     SET
         student_update_dt = CURRENT_TIMESTAMP
+]]>
         <if test='studentSex != null and studentSex != ""'>
             , student_sex = #{studentSex}
         </if>
@@ -160,35 +188,42 @@
             , student_age = #{studentAge}
         </if>
     WHERE
-        <if test='studentId != null and studentId != ""'>
+        <if test='studentId != null and studentId != ""'> 
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = #{studentHakbun}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <update id="deleteStudent">
+    <![CDATA[
     UPDATE
         student
     SET
         student_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='studentId != null and studentId != ""'>
+]]>
+        <if test='studentId != null and studentId != ""'> 
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = #{studentHakbun}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <select id="selectStudentOneByIdHakbun" resultType="StudentInfoVo">
+    <![CDATA[
     SELECT
         student_hakbun,
         student_sex,
@@ -197,18 +232,22 @@
     FROM
         student
     WHERE
-        <if test='studentId != null and studentId != ""'>
+]]>
+        <if test='studentId != null and studentId != ""'> 
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
             and
         </if>
         <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = #{studentHakbun}
         </if>
+<![CDATA[
+    ]]>
   </select>
 
   <select id="selectStudentListBySexNameAge" resultType="StudentInfoVo">
+    <![CDATA[
     SELECT
         student_hakbun,
         student_sex,
@@ -217,18 +256,22 @@
     FROM
         student
     WHERE
-        <if test='studentSex != null and studentSex != ""'>
+]]>
+        <if test='studentSex != null and studentSex != ""'> 
             student_sex = #{studentSex}
         </if>
-        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'>
+        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'> 
             and
         </if>
         <if test='studentName != null and studentName != ""'>
             student_name = #{studentName}
         </if>
+<![CDATA[
+    ]]>
   </select>
 
   <insert id="insertRoom">
+    <![CDATA[
     INSERT INTO
         room
         (
@@ -242,88 +285,183 @@
             #{roomLimitCnt},
             #{dormitoryId}
         )
+    ]]>
   </insert>
 
   <update id="updateRoomLimitCnt">
+    <![CDATA[
     UPDATE
         room
     SET
         room_update_dt = CURRENT_TIMESTAMP,
         room_limit_cnt = #{roomLimitCnt}
     WHERE
-        <if test='roomId != null and roomId != ""'>
+]]>
+        <if test='roomId != null and roomId != ""'> 
             room_id = #{roomId}
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
             and
         </if>
         <if test='roomNumber != null and roomNumber != ""'>
             room_number = #{roomNumber}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <update id="deleteRoomByIdNum">
+    <![CDATA[
     UPDATE
         room
     SET
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
-        <if test='roomId != null and roomId != ""'>
+]]>
+        <if test='roomId != null and roomId != ""'> 
             room_id = #{roomId}
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'>
+        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
             and
         </if>
         <if test='roomNumber != null and roomNumber != ""'>
             room_number = #{roomNumber}
         </if>
+<![CDATA[
+    ]]>
   </update>
 
   <select id="selectRoomOneByIdNum" resultType="RoomInfoVo">
-    SELECT
-      room_number,
-      room_limit_cnt,
-      room_current_cnt
-    FROM
-      room
-    WHERE
-        <if test='roomId != null and roomId != ""'>
-      room_id = #{roomId}
-        </if>
-        <if test='roomId != null and roomId != "" and roomNumber != 0'>
-      and
-        </if>
-        <if test='roomNumber != 0'>
-      room_number = #{roomNumber}
-        </if>
-  </select>
-
-  <select id="selectRoomListByLimitCnt" resultType="RoomInfoVo">
+    <![CDATA[
     SELECT
         room_number,
         room_limit_cnt,
         room_current_cnt
     FROM
         room
+    WHERE
+]]>
+        <if test='roomId != null and roomId != ""'> 
+            room_id = #{roomId}
+        </if>
+        <if test='roomId != null and roomId != "" and roomNumber != 0'> 
+            and
+        </if>
+        <if test='roomNumber != 0'>
+            room_number = #{roomNumber}
+        </if>   
+<![CDATA[
+    ]]>
+  </select>
+
+  <select id="selectRoomListByLimitCnt" resultType="RoomInfoVo">
+    <![CDATA[
+    SELECT
+        room_number,
+        room_limit_cnt,
+        room_current_cnt
+    FROM
+        room
+]]>
     <if test='roomLimitCnt != null and roomLimitCnt != ""'>
     WHERE
         room_limit_cnt = #{roomLimitCnt}
     </if>
+<![CDATA[
+    ]]>
   </select>
 
   <update id="updateRoomCurrentCntByRoomId">
+    <![CDATA[
     UPDATE
         room
     SET
-    room_update_dt = CURRENT_TIMESTAMP,
-    room_current_cnt
-    <if test='how == 1'>
+        room_update_dt = CURRENT_TIMESTAMP,
+        room_current_cnt
+]]>
+        <if test='how == 1'>
             = room_current_cnt + 1
         </if>
-    <if test='how == 2'>
+        <if test='how == 2'>
             = room_current_cnt - 1
         </if>
     WHERE
         room_id = #{roomId}
+<![CDATA[
+    ]]>
+  </update>
+
+  <insert id="insertManager">
+    <![CDATA[
+    INSERT INTO
+        manager
+        (
+            manager_age,
+            manager_name
+        )
+    VALUES
+        (
+            #{managerAge},
+            #{managerName}
+        )
+    ]]>
+  </insert>
+
+  <insert id="insertPointToStudent">
+    <![CDATA[
+    INSERT INTO
+        point
+        (
+            dormitory_student_id,
+            rule_id,
+            manager_id
+        )
+    VALUES
+        (
+            #{dormitoryStudentId},
+            #{ruleId},
+            #{managerId}
+        )
+    ]]>
+  </insert>
+
+  <update id="deletePointToStudent">
+    <![CDATA[
+    UPDATE
+        point
+    SET
+        point_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        point_id = #{pointId}
+    ]]>
+  </update>
+
+  <insert id="insertRule">
+    <![CDATA[
+    INSERT INTO
+        rule
+        (
+            rule_content,
+            rule_type,
+            rule_point
+        )
+    VALUES
+        (
+            #{ruleContent},
+            #{ruleType},
+            #{rulePoint}
+        )
+    ]]>
+  </insert>
+
+  <update id="deleteRule">
+    <![CDATA[
+    UPDATE
+        rule
+    SET
+        rule_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        rule_id = #{ruleId}
+    ]]>
   </update>
 </mapper>
