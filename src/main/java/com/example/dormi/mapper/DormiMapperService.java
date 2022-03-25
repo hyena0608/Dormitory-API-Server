@@ -24,6 +24,10 @@ public class DormiMapperService {
     return mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
   }
 
+  public List<DormitoryStudentInfoVo> selectDormitoryStudentByStudentId(long studentId) {
+    return mapper.selectDormitoryStudentByStudentId(studentId);
+  }
+
   public long insertDormitory(String dormitoryName, String dormitoryAddress) {
     return mapper.insertDormitory(dormitoryName, dormitoryAddress);
   }

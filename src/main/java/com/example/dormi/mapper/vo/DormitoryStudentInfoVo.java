@@ -16,4 +16,6 @@ public class DormitoryStudentInfoVo {
   public long roomId;
 
   public long studentId;
+
+  public String dormitoryStudentDeleteDt;
 }

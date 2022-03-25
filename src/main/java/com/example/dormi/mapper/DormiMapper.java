@@ -13,6 +13,8 @@ public interface DormiMapper {
 
   DormitoryStudentInfoVo selectDormitoryStudentByDormitoryStudentId(@Param("dormitoryStudentId") long dormitoryStudentId);
 
+  List<DormitoryStudentInfoVo> selectDormitoryStudentByStudentId(@Param("studentId") long studentId);
+
   long insertDormitory(@Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
 
   long updateDormitory(@Param("dormitoryId") long dormitoryId, @Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);

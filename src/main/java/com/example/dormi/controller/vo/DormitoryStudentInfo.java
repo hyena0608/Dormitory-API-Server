@@ -10,7 +10,7 @@ import java.sql.Time;
 
 @ApiModel(description = "기숙학생 정보")
 @Data
-public class dormitoryStudentInfo {
+public class DormitoryStudentInfo {
 
   public long dormitoryStudentId = 0;
 
@@ -21,4 +21,6 @@ public class dormitoryStudentInfo {
   public long roomId = 0;
 
   public long studentId = 0;
+
+  public String dormitoryStudentDeleteDt = "";
 }
