@@ -426,7 +426,7 @@
     "/api/v1/room/update": {
       "post": {
         "summary": "방 수정",
-        "operationId": "updateRoomLimitCnt",
+        "operationId": "updateRoomLimitCntRoomNum",
         "tags": [
           "ApiRoom"
         ],
@@ -436,7 +436,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateRoomLimitCntRequest"
+                "$ref": "#/components/schemas/UpdateRoomLimitCntRoomNumRequest"
               }
             }
           }
@@ -447,7 +447,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateRoomLimitCntResponse"
+                  "$ref": "#/components/schemas/UpdateRoomLimitCntRoomNumResponse"
                 }
               }
             }
@@ -858,6 +858,9 @@
           },
           "roomCurrentCnt": {
             "type": "integer"
+          },
+          "roomDeleteDt": {
+            "type": ""
           }
         }
       },
@@ -1041,7 +1044,7 @@
           }
         }
       },
-      "UpdateRoomLimitCntRequest": {
+      "UpdateRoomLimitCntRoomNumRequest": {
         "type": "object",
         "properties": {
           "roomId": {
@@ -1262,7 +1265,7 @@
           }
         }
       },
-      "UpdateRoomLimitCntResponse": {
+      "UpdateRoomLimitCntRoomNumResponse": {
         "type": "object",
         "properties": {
           "roomdId": {

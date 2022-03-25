@@ -4,7 +4,7 @@ define opcode[controller=ApiRoom, baseURL='/api/v1']
     insertRoom 2001 '방 저장'
 
     [method=post, action='room/update', noauth, overwrite=false]
-    updateRoomLimitCnt 2002 '방 수정'
+    updateRoomLimitCntRoomNum 2002 '방 수정'
 
     [method=post, action='room/delete', noauth, overwrite=false]
     deleteRoomByIdNum 2003 '방 삭제'
@@ -33,13 +33,13 @@ res insertRoom {
 /**
  * 2002
  */
-req updateRoomLimitCnt {
+req updateRoomLimitCntRoomNum {
     roomId Long;
     roomNumber Long;
     roomLimitCnt People;
 }
 
-res updateRoomLimitCnt {
+res updateRoomLimitCntRoomNum {
     roomdId Long;
 }
 
