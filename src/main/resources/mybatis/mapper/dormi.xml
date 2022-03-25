@@ -382,7 +382,8 @@
     SELECT
         room_number,
         room_limit_cnt,
-        room_current_cnt
+        room_current_cnt,
+        room_delete_dt
     FROM
         room
     WHERE
