@@ -1,4 +1,0 @@
-import './query_dormitory_student.jssp';
-import './query_dormitory.jssp';
-import './query_student.jssp';
-import './query_room.jssp';

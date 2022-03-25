@@ -1,4 +1,0 @@
-entity DormitoryInfoVo '기숙사 정보' {
-    dormitoryName Name;
-    dormitoryAddress Address;
-}

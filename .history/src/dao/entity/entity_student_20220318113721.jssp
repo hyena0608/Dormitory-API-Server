@@ -1,6 +1,0 @@
-entity StudentInfoVo '학생 정보' {
-    student_hakbun Long;
-    student_sex TypeID;
-    student_name Name;
-    student_age Age;
-}

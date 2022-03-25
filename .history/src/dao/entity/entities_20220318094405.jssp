@@ -1,4 +1,0 @@
-import './entity_dormitory_student.jssp';
-import './entity_dormitory.jssp';
-import './entity_student.jssp';
-import './entity_room.jssp';

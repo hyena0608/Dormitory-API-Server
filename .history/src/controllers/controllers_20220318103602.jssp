@@ -1,3 +1,0 @@
-import './controller_dormitory.jssp';
-import './controller_student.jssp';
-import './controller_room.jssp';

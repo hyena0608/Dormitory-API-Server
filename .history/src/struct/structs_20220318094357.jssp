@@ -1,4 +1,0 @@
-import './struct_dormitory_student.jssp';
-import './struct_dormitory.jssp';
-import './struct_student.jssp';
-import './struct_room.jssp';
