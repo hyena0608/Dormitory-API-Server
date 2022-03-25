@@ -395,6 +395,9 @@
         room_update_dt = CURRENT_TIMESTAMP,
         room_current_cnt
 ]]>
+        <if test='how == 0'>
+            = room_current_cnt
+        </if>
         <if test='how == 1'>
             = room_current_cnt + 1
         </if>

@@ -6,10 +6,12 @@ import com.example.dormi.mapper.DormiMapper;
 import com.example.dormi.mapper.vo.DormitoryStudentInfoVo;
 import com.example.dormi.mapper.vo.RoomInfoVo;
 import com.example.dormi.service.CustomUserDetails;
+import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.example.dormi.controller.ResultCode;
+
 import java.util.List;
 
 @Slf4j
@@ -17,39 +19,58 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
 
-  private final DormiMapper mapper;
+    private final DormiMapper mapper;
 
-  public UpdateDormitoryStudentOutRoomResponse execute(CustomUserDetails user, UpdateDormitoryStudentOutRoomRequest req) {
-    UpdateDormitoryStudentOutRoomResponse res = new UpdateDormitoryStudentOutRoomResponse();
+    public UpdateDormitoryStudentOutRoomResponse execute(CustomUserDetails user, UpdateDormitoryStudentOutRoomRequest req) {
+        UpdateDormitoryStudentOutRoomResponse res = new UpdateDormitoryStudentOutRoomResponse();
 
-    final long dormitoryStudentId = req.getDormitoryStudentId();
-    final long studentId = req.getStudentId();
+        final long dormitoryStudentId = req.getDormitoryStudentId();
+        final long studentId = req.getStudentId();
+        int calType = 1;
 
 //    if(emptyParam(dormitoryStudentId) || emptyParam(studentId)) {
 //      res.setCode(ResultCode.BadParams);\
 //      return res;
 //    }
 
-    try {
-      mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
-      roomCurrentCount(res, dormitoryStudentId);
-      return res;
-    }
-    catch(Exception e) {
-      log.error(e.toString());
-      res.setCode(ResultCode.Failed);
-      return res;
-    }
-  }
+        try {
 
-  private void roomCurrentCount(UpdateDormitoryStudentOutRoomResponse res, long dormitoryStudentId) {
-    DormitoryStudentInfoVo dormitoryStudentInfoVo = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
-    long roomId = dormitoryStudentInfoVo.getRoomId();
-    RoomInfoVo roomInfoVo = mapper.selectRoomOneByIdNum(roomId, 0);
-    int roomCurrentCnt = roomInfoVo.getRoomCurrentCnt();
-    if (roomCurrentCnt > 0) {
-      mapper.updateRoomCurrentCntByRoomId(roomId, 2);
-      res.setCode(ResultCode.Success);
-    } else res.setCode(ResultCode.PeopleCntError);
-  }
+            DormitoryStudentInfoVo findDormitoryStudent = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
+
+            long findRoomId = findDormitoryStudent.getRoomId();
+            isStudentAlreadyOut(findDormitoryStudent);
+            calType = isCurrentRoomCntOk(findRoomId, findDormitoryStudent);
+
+            mapper.updateRoomCurrentCntByRoomId(findRoomId, calType);
+            mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
+
+            res.setCode(ResultCode.Success);
+            return res;
+
+        } catch (Exception e) {
+            log.error(e.toString());
+            res.setCode(ResultCode.Failed);
+            return res;
+        }
+    }
+
+    private void isStudentAlreadyOut(DormitoryStudentInfoVo findDormitoryStudent) {
+        String deleteDt = findDormitoryStudent.getDormitoryStudentDeleteDt();
+        if (deleteDt == null) {
+            throw new IllegalArgumentException("이미 퇴실 처리된 학생입니다.");
+        }
+    }
+
+    private int isCurrentRoomCntOk(long findRoomId, DormitoryStudentInfoVo findDormitoryStudent) {
+        int calType = 2;
+
+        RoomInfoVo findRoom = mapper.selectRoomOneByIdNum(findRoomId, 0);
+
+        int roomCurrentCnt = findRoom.getRoomCurrentCnt();
+        if (roomCurrentCnt == 0) calType = 0;
+        else if (roomCurrentCnt < 0)
+            throw new IllegalArgumentException("현재 방 인원이 맞지 않습니다. (현 인원: -)");
+
+        return calType;
+    }
 }
