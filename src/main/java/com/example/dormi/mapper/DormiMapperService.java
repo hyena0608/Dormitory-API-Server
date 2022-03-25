@@ -24,6 +24,18 @@ public class DormiMapperService {
     return mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
   }
 
+  public List<DormitoryStudentInfoVo> selectDormitoryStudentByStudentId(long studentId) {
+    return mapper.selectDormitoryStudentByStudentId(studentId);
+  }
+
+  public void updateDormitoryStudentDeleteDt(long dormitoryStudentId) {
+    mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);
+  }
+
+  public List<DormitoryStudentInfoVo> selectDormitoryStudentByRoomId(long roomId) {
+    return mapper.selectDormitoryStudentByRoomId(roomId);
+  }
+
   public long insertDormitory(String dormitoryName, String dormitoryAddress) {
     return mapper.insertDormitory(dormitoryName, dormitoryAddress);
   }
@@ -68,8 +80,8 @@ public class DormiMapperService {
     return mapper.insertRoom(roomNumber, roomLimitCnt, dormitoryId);
   }
 
-  public long updateRoomLimitCnt(long roomId, long roomNumber, int roomLimitCnt) {
-    return mapper.updateRoomLimitCnt(roomId, roomNumber, roomLimitCnt);
+  public long updateRoomLimitCntRoomNum(long roomId, long roomNumber, int roomLimitCnt) {
+    return mapper.updateRoomLimitCntRoomNum(roomId, roomNumber, roomLimitCnt);
   }
 
   public long deleteRoomByIdNum(long roomId, long roomNumber) {
@@ -106,6 +118,10 @@ public class DormiMapperService {
 
   public List<PointInfoVo> selectPoint(long dormitoryStudentId) {
     return mapper.selectPoint(dormitoryStudentId);
+  }
+
+  public void deletePointToStudetByRuleId(long ruleId) {
+    mapper.deletePointToStudetByRuleId(ruleId);
   }
 
   public long insertRule(String ruleContent, int ruleType, int rulePoint) {

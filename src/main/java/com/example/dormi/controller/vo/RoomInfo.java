@@ -17,4 +17,6 @@ public class RoomInfo {
   public int roomLimitCnt = 0;
 
   public int roomCurrentCnt = 0;
+
+  public  roomDeleteDt;
 }

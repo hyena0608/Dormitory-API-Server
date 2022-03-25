@@ -13,6 +13,12 @@ public interface DormiMapper {
 
   DormitoryStudentInfoVo selectDormitoryStudentByDormitoryStudentId(@Param("dormitoryStudentId") long dormitoryStudentId);
 
+  List<DormitoryStudentInfoVo> selectDormitoryStudentByStudentId(@Param("studentId") long studentId);
+
+  void updateDormitoryStudentDeleteDt(@Param("dormitoryStudentId") long dormitoryStudentId);
+
+  List<DormitoryStudentInfoVo> selectDormitoryStudentByRoomId(@Param("roomId") long roomId);
+
   long insertDormitory(@Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
 
   long updateDormitory(@Param("dormitoryId") long dormitoryId, @Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
@@ -35,7 +41,7 @@ public interface DormiMapper {
 
   long insertRoom(@Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt, @Param("dormitoryId") long dormitoryId);
 
-  long updateRoomLimitCnt(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
+  long updateRoomLimitCntRoomNum(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
 
   long deleteRoomByIdNum(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber);
 
@@ -54,6 +60,8 @@ public interface DormiMapper {
   long deletePointToStudent(@Param("pointId") long pointId);
 
   List<PointInfoVo> selectPoint(@Param("dormitoryStudentId") long dormitoryStudentId);
+
+  void deletePointToStudetByRuleId(@Param("ruleId") long ruleId);
 
   long insertRule(@Param("ruleContent") String ruleContent, @Param("ruleType") int ruleType, @Param("rulePoint") int rulePoint);
 

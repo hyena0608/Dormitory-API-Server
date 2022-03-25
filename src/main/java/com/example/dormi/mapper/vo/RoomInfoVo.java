@@ -12,4 +12,6 @@ public class RoomInfoVo {
   public int roomLimitCnt;
 
   public int roomCurrentCnt;
+
+  public  roomDeleteDt;
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 @ApiModel(description = "방 수정")
 @Data
-public class UpdateRoomLimitCntRequest {
+public class UpdateRoomLimitCntRoomNumRequest {
 
   @ApiParam(value = "null", required = true)
   private long roomId;

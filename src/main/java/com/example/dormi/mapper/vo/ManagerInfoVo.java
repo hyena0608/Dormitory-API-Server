@@ -7,9 +7,9 @@ import java.sql.Time;
 @Data
 public class ManagerInfoVo {
 
-  public long manager_id;
+  public long managerId;
 
-  public String manager_name;
+  public String managerName;
 
-  public int manager_age;
+  public int managerAge;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(description = "방 수정")
 @Data
-public class UpdateRoomLimitCntResponse extends BaseResponse {
+public class UpdateRoomLimitCntRoomNumResponse extends BaseResponse {
 
   public long roomdId = 0;
 }

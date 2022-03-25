@@ -19,6 +19,4 @@ public class PointInfo {
   public long ruleId = 0;
 
   public long managerId = 0;
-
-  public  pointDeleteDt;
 }

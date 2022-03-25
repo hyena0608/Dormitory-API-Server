@@ -14,6 +14,4 @@ public class RuleInfoVo {
   public int rulueType;
 
   public int rulePoint;
-
-  public  ruleDeleteDt;
 }

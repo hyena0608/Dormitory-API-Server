@@ -14,6 +14,4 @@ public class PointInfoVo {
   public long ruleId;
 
   public long managerId;
-
-  public  pointDeleteDt;
 }
