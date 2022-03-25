@@ -11,8 +11,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.example.dormi.controller.ResultCode;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Timer;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -62,10 +67,10 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
 
     private void isStudentAlreadyInRoom(long studentId) {
         List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList = mapper.selectDormitoryStudentByStudentId(studentId);
-        List<String> deleteDateList = dormitoryStudentInfoVoList
+        List<Timestamp> deleteDateList = dormitoryStudentInfoVoList
                 .stream().map(DormitoryStudentInfoVo::getDormitoryStudentDeleteDt)
                 .collect(Collectors.toList());
-        for (String date : deleteDateList) {
+        for (Timestamp date : deleteDateList) {
             if (date == null) {
                 throw new IllegalArgumentException("이미 방이 배정된 학생입니다.");
             }

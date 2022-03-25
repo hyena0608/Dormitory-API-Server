@@ -9,9 +9,13 @@ import com.example.dormi.service.CustomUserDetails;
 import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Component;
 import com.example.dormi.controller.ResultCode;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -37,8 +41,9 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
 
             DormitoryStudentInfoVo findDormitoryStudent = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
 
-            long findRoomId = findDormitoryStudent.getRoomId();
             isStudentAlreadyOut(findDormitoryStudent);
+
+            long findRoomId = findDormitoryStudent.getRoomId();
             calType = isCurrentRoomCntOk(findRoomId, findDormitoryStudent);
 
             mapper.updateRoomCurrentCntByRoomId(findRoomId, calType);
@@ -55,9 +60,11 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
     }
 
     private void isStudentAlreadyOut(DormitoryStudentInfoVo findDormitoryStudent) {
-        String deleteDt = findDormitoryStudent.getDormitoryStudentDeleteDt();
-        if (deleteDt == null) {
+        Timestamp deleteDt = findDormitoryStudent.getDormitoryStudentDeleteDt();
+        if (deleteDt != null) {
             throw new IllegalArgumentException("이미 퇴실 처리된 학생입니다.");
+        } else {
+            mapper.updateDormitoryStudentDeleteDt(findDormitoryStudent.getDormitoryStudentId());
         }
     }
 

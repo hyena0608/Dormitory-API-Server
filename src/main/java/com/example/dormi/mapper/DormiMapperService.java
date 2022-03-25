@@ -28,6 +28,10 @@ public class DormiMapperService {
     return mapper.selectDormitoryStudentByStudentId(studentId);
   }
 
+  public void updateDormitoryStudentDeleteDt(long dormitoryStudentId) {
+    mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);
+  }
+
   public long insertDormitory(String dormitoryName, String dormitoryAddress) {
     return mapper.insertDormitory(dormitoryName, dormitoryAddress);
   }
