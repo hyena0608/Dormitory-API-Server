@@ -3,8 +3,6 @@ package com.example.dormi.controller.vo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
-
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.sql.Date;
@@ -20,5 +18,5 @@ public class RoomInfo {
 
   public int roomCurrentCnt = 0;
 
-  public Timestamp roomDeleteDt;
+  public  roomDeleteDt;
 }

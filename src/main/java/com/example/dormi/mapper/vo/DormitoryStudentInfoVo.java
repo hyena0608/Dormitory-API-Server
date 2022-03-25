@@ -3,7 +3,6 @@ package com.example.dormi.mapper.vo;
 import lombok.Data;
 import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
 
 @Data
 public class DormitoryStudentInfoVo {
@@ -18,5 +17,5 @@ public class DormitoryStudentInfoVo {
 
   public long studentId;
 
-  public Timestamp dormitoryStudentDeleteDt;
+  public  dormitoryStudentDeleteDt;
 }

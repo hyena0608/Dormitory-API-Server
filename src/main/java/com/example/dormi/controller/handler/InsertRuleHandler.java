@@ -32,9 +32,9 @@ public class InsertRuleHandler extends BaseHandler {
 
         try {
 
-            long ruldId = mapper.insertRule(ruleContent, ruleType, rulePoint);
+            long ruleId = mapper.insertRule(ruleContent, ruleType, rulePoint);
 
-            res.setRuleId(ruldId);
+            res.setRuleId(ruleId);
             res.setCode(ResultCode.Success);
             return res;
         } catch (Exception e) {
