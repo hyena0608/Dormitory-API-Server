@@ -40,3 +40,14 @@ query selectPoint(dormitoryStudentId Long) PointInfoVo[] {
         dormitory_student_id = :dormitoryStudentId
 
 }
+
+query deletePointToStudetByRuleId(ruleId Long) {
+
+    UPDATE
+        point
+    SET
+        point_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        rule_id = :ruleId
+
+}
