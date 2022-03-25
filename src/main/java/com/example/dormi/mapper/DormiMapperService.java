@@ -80,8 +80,8 @@ public class DormiMapperService {
     return mapper.insertRoom(roomNumber, roomLimitCnt, dormitoryId);
   }
 
-  public long updateRoomLimitCnt(long roomId, long roomNumber, int roomLimitCnt) {
-    return mapper.updateRoomLimitCnt(roomId, roomNumber, roomLimitCnt);
+  public long updateRoomLimitCntRoomNum(long roomId, long roomNumber, int roomLimitCnt) {
+    return mapper.updateRoomLimitCntRoomNum(roomId, roomNumber, roomLimitCnt);
   }
 
   public long deleteRoomByIdNum(long roomId, long roomNumber) {

@@ -41,7 +41,7 @@ public interface DormiMapper {
 
   long insertRoom(@Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt, @Param("dormitoryId") long dormitoryId);
 
-  long updateRoomLimitCnt(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
+  long updateRoomLimitCntRoomNum(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber, @Param("roomLimitCnt") int roomLimitCnt);
 
   long deleteRoomByIdNum(@Param("roomId") long roomId, @Param("roomNumber") long roomNumber);
 

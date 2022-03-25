@@ -33,13 +33,13 @@ public class ApiRoomController {
     return insertRoomHandler.execute(null, req);
   }
 
-  private UpdateRoomLimitCntHandler updateRoomLimitCntHandler;
+  private UpdateRoomLimitCntRoomNumHandler updateRoomLimitCntRoomNumHandler;
 
   @RequestMapping(method = RequestMethod.POST, value = "room/update", consumes = MediaType.APPLICATION_JSON_VALUE)
   @ApiOperation(value = "방 수정")
-  UpdateRoomLimitCntResponse updateRoomLimitCnt(@RequestBody UpdateRoomLimitCntRequest req, HttpServletRequest request) {
-    updateRoomLimitCntHandler.setHttpServletRequest(request);
-    return updateRoomLimitCntHandler.execute(null, req);
+  UpdateRoomLimitCntRoomNumResponse updateRoomLimitCntRoomNum(@RequestBody UpdateRoomLimitCntRoomNumRequest req, HttpServletRequest request) {
+    updateRoomLimitCntRoomNumHandler.setHttpServletRequest(request);
+    return updateRoomLimitCntRoomNumHandler.execute(null, req);
   }
 
   private DeleteRoomByIdNumHandler deleteRoomByIdNumHandler;

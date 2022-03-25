@@ -334,25 +334,16 @@
     ]]>
   </insert>
 
-  <update id="updateRoomLimitCnt">
+  <update id="updateRoomLimitCntRoomNum">
     <![CDATA[
     UPDATE
         room
     SET
         room_update_dt = CURRENT_TIMESTAMP,
-        room_limit_cnt = #{roomLimitCnt}
+        room_limit_cnt = #{roomLimitCnt},
+        room_number = #{roomNumber}
     WHERE
-]]>
-        <if test='roomId != null and roomId != ""'> 
-            room_id = #{roomId}
-        </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
-            and
-        </if>
-        <if test='roomNumber != null and roomNumber != ""'>
-            room_number = #{roomNumber}
-        </if>
-<![CDATA[
+        room_id = #{roomId}
     ]]>
   </update>
 
@@ -382,21 +373,12 @@
     SELECT
         room_number,
         room_limit_cnt,
-        room_current_cnt
+        room_current_cnt,
+        room_delete_dt
     FROM
         room
     WHERE
-]]>
-        <if test='roomId != null and roomId != ""'> 
-            room_id = #{roomId}
-        </if>
-        <if test='roomId != null and roomId != "" and roomNumber != 0'> 
-            and
-        </if>
-        <if test='roomNumber != 0'>
-            room_number = #{roomNumber}
-        </if>   
-<![CDATA[
+        room_id = #{roomId}
     ]]>
   </select>
 
