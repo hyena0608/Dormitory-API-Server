@@ -44,10 +44,55 @@ query selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId Long) Dormit
         dormitory_student_semester,
         dormitory_id,
         room_id,
-        student_id
+        student_id,
+        dormitory_student_delete_dt
     FROM
         dormitory_student
     WHERE
         dormitory_student_id = :dormitoryStudentId
 
+}
+
+query selectDormitoryStudentByStudentId(studentId Long) DormitoryStudentInfoVo[] {
+
+    SELECT
+        dormitory_student_id,
+        dormitory_student_semester,
+        dormitory_id,
+        room_id,
+        student_id,
+        dormitory_student_delete_dt
+    FROM
+        dormitory_student
+    WHERE
+        student_id = :studentId
+
+}
+
+query updateDormitoryStudentDeleteDt(dormitoryStudentId Long) {
+
+    UPDATE
+        dormitory_student
+    SET
+        dormitory_student_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        dormitory_student_id = :dormitoryStudentId
+
+}
+
+query selectDormitoryStudentByRoomId(roomId Long) DormitoryStudentInfoVo[] {
+
+    SELECT
+        dormitory_student_id,
+        dormitory_student_semester,
+        dormitory_id,
+        room_id,
+        student_id,
+        dormitory_student_delete_dt
+    FROM
+        dormitory_student
+    WHERE
+        room_id = :roomId
+        and
+        dormitory_student_delete_dt is null
 }

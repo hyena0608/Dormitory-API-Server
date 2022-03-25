@@ -796,7 +796,7 @@
       }
     },
     "schemas": {
-      "dormitoryStudentInfo": {
+      "DormitoryStudentInfo": {
         "type": "object",
         "properties": {
           "dormitoryStudentId": {
@@ -813,6 +813,9 @@
           },
           "studentId": {
             "type": "number"
+          },
+          "dormitoryStudentDeleteDt": {
+            "type": ""
           }
         }
       },
