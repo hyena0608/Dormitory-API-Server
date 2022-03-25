@@ -86,6 +86,24 @@
     ]]>
   </update>
 
+  <select id="selectDormitoryStudentByRoomId" resultType="DormitoryStudentInfoVo">
+    <![CDATA[
+    SELECT
+        dormitory_student_id,
+        dormitory_student_semester,
+        dormitory_id,
+        room_id,
+        student_id,
+        dormitory_student_delete_dt
+    FROM
+        dormitory_student
+    WHERE
+        room_id = #{roomId}
+        and
+        dormitory_student_delete_dt is null
+    ]]>
+  </select>
+
   <insert id="insertDormitory">
     <![CDATA[
     INSERT INTO 

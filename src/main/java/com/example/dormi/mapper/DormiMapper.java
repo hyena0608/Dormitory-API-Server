@@ -17,6 +17,8 @@ public interface DormiMapper {
 
   void updateDormitoryStudentDeleteDt(@Param("dormitoryStudentId") long dormitoryStudentId);
 
+  List<DormitoryStudentInfoVo> selectDormitoryStudentByRoomId(@Param("roomId") long roomId);
+
   long insertDormitory(@Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
 
   long updateDormitory(@Param("dormitoryId") long dormitoryId, @Param("dormitoryName") String dormitoryName, @Param("dormitoryAddress") String dormitoryAddress);
