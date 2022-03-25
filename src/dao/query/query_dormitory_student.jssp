@@ -25,13 +25,13 @@ query updateDormitoryStudentOutRoom(dormitoryStudentId Long, studentId Long) Lon
         dormitory_student_delete_dt = CURRENT_TIMESTAMP
     WHERE
 ]]>
-        <if test='dormitoryStudentId != null and dormitoryStudentId != ""'> 
+        <if test='dormitoryStudentId != null and dormitoryStudentId != "0"'> 
             dormitory_student_id = :dormitoryStudentId
         </if>
-        <if test='dormitoryStudentId != null and dormitoryStudentId != "" and studentId != null and studentId != ""'> 
+        <if test='dormitoryStudentId != null and dormitoryStudentId != "0" and studentId != null and studentId != "0"'> 
             and
         </if>
-        <if test='studentId != null and studentId != ""'>
+        <if test='studentId != null and studentId != "0"'>
             student_id = :studentId
         </if>
 <![CDATA[

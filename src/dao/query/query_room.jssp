@@ -37,13 +37,13 @@ query deleteRoomByIdNum(roomId Long, roomNumber Long) Long {
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
 ]]>
-        <if test='roomId != null and roomId != ""'> 
+        <if test='roomId != null and roomId != "0"'> 
             room_id = :roomId
         </if>
-        <if test='roomId != null and roomId != "" and roomNumber != null and roomNumber != ""'> 
+        <if test='roomId != null and roomId != "0" and roomNumber != null and roomNumber != "0"'> 
             and
         </if>
-        <if test='roomNumber != null and roomNumber != ""'>
+        <if test='roomNumber != null and roomNumber != "0"'>
             room_number = :roomNumber
         </if>
 <![CDATA[
@@ -73,7 +73,7 @@ query selectRoomListByLimitCnt(roomLimitCnt People) RoomInfoVo[] {
     FROM
         room
 ]]>
-    <if test='roomLimitCnt != null and roomLimitCnt != ""'>
+    <if test='roomLimitCnt != null and roomLimitCnt != "0"'>
     WHERE
         room_limit_cnt = :roomLimitCnt
     </if>

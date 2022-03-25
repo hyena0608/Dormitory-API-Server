@@ -25,23 +25,23 @@ query updateStudent(studentId Long, studentHakbun Long, studentSex TypeID, stude
     SET
         student_update_dt = CURRENT_TIMESTAMP
 ]]>
-        <if test='studentSex != null and studentSex != ""'>
+        <if test='studentSex != null and studentSex != "0"'>
             , student_sex = :studentSex
         </if>
-        <if test='studentName != null and studentName != ""'>
+        <if test='studentName != null and studentName != "0"'>
             , student_name = :studentName
         </if>
-        <if test='studentAge != null and studentAge != ""'>
+        <if test='studentAge != null and studentAge != "0"'>
             , student_age = :studentAge
         </if>
     WHERE
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != "0"'> 
             student_id = :studentId
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "0" and studentHakbun != null and studentHakbun != "0"'> 
             and
         </if>
-        <if test='studentHakbun != null and studentHakbun != ""'>
+        <if test='studentHakbun != null and studentHakbun != "0"'>
             student_hakbun = :studentHakbun
         </if>
 <![CDATA[
@@ -56,13 +56,13 @@ query deleteStudent(studentId Long, studentHakbun Long) Long {
         student_delete_dt = CURRENT_TIMESTAMP
     WHERE
 ]]>
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != "0"'> 
             student_id = :studentId
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "0" and studentHakbun != null and studentHakbun != "0"'> 
             and
         </if>
-        <if test='studentHakbun != null and studentHakbun != ""'>
+        <if test='studentHakbun != null and studentHakbun != "0"'>
             student_hakbun = :studentHakbun
         </if>
 <![CDATA[
@@ -80,13 +80,13 @@ query selectStudentOneByIdHakbun(studentId Long, studentHakbun Long) StudentInfo
         student
     WHERE
 ]]>
-        <if test='studentId != null and studentId != ""'> 
+        <if test='studentId != null and studentId != "0"'> 
             student_id = :studentId
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'> 
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != "0"'> 
             and
         </if>
-        <if test='studentHakbun != null and studentHakbun != ""'>
+        <if test='studentHakbun != null and studentHakbun != "0"'>
             student_hakbun = :studentHakbun
         </if>
 <![CDATA[
@@ -104,13 +104,13 @@ query selectStudentListBySexNameAge(studentSex TypeID, studentName Name) Student
         student
     WHERE
 ]]>
-        <if test='studentSex != null and studentSex != ""'> 
+        <if test='studentSex != null and studentSex != "0"'> 
             student_sex = :studentSex
         </if>
-        <if test='studentSex != null and studentSex != "" and studentName != null and studentName != ""'> 
+        <if test='studentSex != null and studentSex != "0" and studentName != null and studentName != "0"'> 
             and
         </if>
-        <if test='studentName != null and studentName != ""'>
+        <if test='studentName != null and studentName != "0"'>
             student_name = :studentName
         </if>
 <![CDATA[
