@@ -463,6 +463,17 @@
     ]]>
   </select>
 
+  <update id="deletePointToStudetByRuleId">
+    <![CDATA[
+    UPDATE
+        point
+    SET
+        point_delete_dt = CURRENT_TIMESTAMP
+    WHERE
+        rule_id = #{ruleId}
+    ]]>
+  </update>
+
   <insert id="insertRule">
     <![CDATA[
     INSERT INTO

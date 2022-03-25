@@ -108,6 +108,10 @@ public class DormiMapperService {
     return mapper.selectPoint(dormitoryStudentId);
   }
 
+  public void deletePointToStudetByRuleId(long ruleId) {
+    mapper.deletePointToStudetByRuleId(ruleId);
+  }
+
   public long insertRule(String ruleContent, int ruleType, int rulePoint) {
     return mapper.insertRule(ruleContent, ruleType, rulePoint);
   }

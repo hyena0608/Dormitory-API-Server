@@ -55,6 +55,8 @@ public interface DormiMapper {
 
   List<PointInfoVo> selectPoint(@Param("dormitoryStudentId") long dormitoryStudentId);
 
+  void deletePointToStudetByRuleId(@Param("ruleId") long ruleId);
+
   long insertRule(@Param("ruleContent") String ruleContent, @Param("ruleType") int ruleType, @Param("rulePoint") int rulePoint);
 
   long deleteRule(@Param("ruleId") long ruleId);
