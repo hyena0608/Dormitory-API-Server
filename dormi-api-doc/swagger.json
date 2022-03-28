@@ -724,13 +724,13 @@
     },
     "/api/v1/point/insert": {
       "post": {
-        "summary": "학생 점수 부여",
+        "summary": "기숙학생 점수 부여",
         "operationId": "insertPointToStudent",
         "tags": [
           "ApiPoint"
         ],
         "requestBody": {
-          "description": "학생 점수 부여",
+          "description": "기숙학생 점수 부여",
           "required": true,
           "content": {
             "application/json": {
@@ -756,13 +756,13 @@
     },
     "/api/v1/point/delete": {
       "post": {
-        "summary": "학생 점수 취소",
+        "summary": "기숙학생 점수 취소",
         "operationId": "deletePointToStudent",
         "tags": [
           "ApiPoint"
         ],
         "requestBody": {
-          "description": "학생 점수 취소",
+          "description": "기숙학생 점수 취소",
           "required": true,
           "content": {
             "application/json": {
@@ -779,6 +779,39 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/DeletePointToStudentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/point/select": {
+      "get": {
+        "summary": "기숙학생 점수 조회",
+        "operationId": "selectPointByDormitoryStudentId",
+        "tags": [
+          "ApiPoint"
+        ],
+        "description": "기숙학생 점수 조회",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "dormitoryStudentId",
+            "required": true,
+            "description": null,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelectPointByDormitoryStudentIdResponse"
                 }
               }
             }
@@ -1171,6 +1204,14 @@
           }
         }
       },
+      "SelectPointByDormitoryStudentIdRequest": {
+        "type": "object",
+        "properties": {
+          "dormitoryStudentId": {
+            "type": "number"
+          }
+        }
+      },
       "InsertDormitoryResponse": {
         "type": "object",
         "properties": {
@@ -1353,6 +1394,14 @@
         "properties": {
           "pointId": {
             "type": "number"
+          }
+        }
+      },
+      "SelectPointByDormitoryStudentIdResponse": {
+        "type": "object",
+        "properties": {
+          "rulePoint": {
+            "type": "integer"
           }
         }
       }

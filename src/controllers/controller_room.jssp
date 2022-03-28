@@ -3,7 +3,7 @@ define opcode[controller=ApiRoom, baseURL='/api/v1']
     [method=post, action='room/insert', noauth, overwrite=false]
     insertRoom 2001 '방 저장'
 
-    [method=post, action='room/update', noauth, overwrite=false]
+    [method=post, action='room/update', noauth, overwrite=false ]
     updateRoomLimitCntRoomNum 2002 '방 수정'
 
     [method=post, action='room/delete', noauth, overwrite=false]

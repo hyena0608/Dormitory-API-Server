@@ -51,3 +51,18 @@ query deletePointToStudetByRuleId(ruleId Long) {
         rule_id = :ruleId
 
 }
+
+query selectPointByDormitoryStudentId(dormitoryStudentId Long) Point {
+
+    SELECT
+        sum(r.rule_point)
+    FROM
+        point p
+    JOIN rule r 
+    ON p.rule_id = r.rule_id    
+    JOIN dormitory_student ds 
+    ON  p.dormitory_student_id = ds.dormitory_student_id
+    WHERE p.dormitory_student_id = :dormitoryStudentId 
+    AND ds.dormitory_student_delete_dt is null
+
+}

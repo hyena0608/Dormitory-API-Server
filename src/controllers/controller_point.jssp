@@ -1,10 +1,13 @@
 define opcode[controller=ApiPoint, baseURL='/api/v1']
 {
     [method=post, action='point/insert', noauth, overwrite=false]
-    insertPointToStudent 7001 '학생 점수 부여'
+    insertPointToStudent 7001 '기숙학생 점수 부여'
 
     [method=post, action='point/delete', noauth, overwrite=false]
-    deletePointToStudent 7002 '학생 점수 취소'
+    deletePointToStudent 7002 '기숙학생 점수 취소'
+
+    [method=get, action='point/select', noauth, overwrite=false]
+    selectPointByDormitoryStudentId 7003 '기숙학생 점수 조회'
 }
 
 /**
@@ -29,4 +32,16 @@ req deletePointToStudent {
 
 res deletePointToStudent {
     pointId Long;
+}
+
+/**
+ * 7003
+ */
+req selectPointByDormitoryStudentId {
+    dormitoryStudentId Long;
+}
+
+res selectPointByDormitoryStudentId {
+// FIXME: 조인으로 가져올거임 수정요함
+    rulePoint Point;
 }
