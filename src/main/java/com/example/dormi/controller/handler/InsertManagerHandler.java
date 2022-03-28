@@ -18,7 +18,8 @@ public class InsertManagerHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public InsertManagerResponse execute(CustomUserDetails user, InsertManagerRequest req) {
+    public InsertManagerResponse execute(CustomUserDetails user,
+                                         InsertManagerRequest req) {
         InsertManagerResponse res = new InsertManagerResponse();
 
         final int managerAge = req.getManagerAge();

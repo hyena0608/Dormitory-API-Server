@@ -22,7 +22,8 @@ public class SelectRoomListByLimitCntHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public SelectRoomListByLimitCntResponse execute(CustomUserDetails user, SelectRoomListByLimitCntRequest req) {
+    public SelectRoomListByLimitCntResponse execute(CustomUserDetails user,
+                                                    SelectRoomListByLimitCntRequest req) {
         SelectRoomListByLimitCntResponse res = new SelectRoomListByLimitCntResponse();
 
         final int roomLimitCnt = req.getRoomLimitCnt();

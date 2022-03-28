@@ -13,27 +13,25 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DeleteStudentHandler extends BaseHandler {
+public class SelectPointByDormitoryStudentIdHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public DeleteStudentResponse execute(CustomUserDetails user,
-                                       DeleteStudentRequest req) {
-    DeleteStudentResponse res = new DeleteStudentResponse();
+  public SelectPointByDormitoryStudentIdResponse execute(CustomUserDetails user, SelectPointByDormitoryStudentIdRequest req) {
+    SelectPointByDormitoryStudentIdResponse res = new SelectPointByDormitoryStudentIdResponse();
 
-    final long studentId = req.getStudentId();
-    final long studentHakbun = req.getStudentHakbun();
+    final long dormitoryStudentId = req.getDormitoryStudentId();
 
-//    if(emptyParam(studentId) || emptyParam(studentHakbun)) {
-//      res.setCode(ResultCode.BadParams);
-//      return res;
-//    }
+    if(emptyParam(dormitoryStudentId)) {
+      res.setCode(ResultCode.BadParams);
+      return res;
+    }
 
     try {
 
-      long student = mapper.deleteStudent(studentId, studentHakbun);
+      int totalPoint = mapper.selectPointByDormitoryStudentId(dormitoryStudentId);
 
-      res.setStudentId(student);
+      res.setRulePoint(totalPoint);
       res.setCode(ResultCode.Success);
       return res;
     }

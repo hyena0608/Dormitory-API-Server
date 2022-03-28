@@ -12,6 +12,12 @@ spring:
       minimum-idle: 10
       maximum-pool-size: 10
       connection-test-query: SELECT 1
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      schema-locations: classpath:sql/schema-mysql.sql
+
 
 mybatis:
   mapper-locations: ./mybatis/mapper/*.xml

@@ -27,7 +27,7 @@ public class ApiPointController {
   private InsertPointToStudentHandler insertPointToStudentHandler;
 
   @RequestMapping(method = RequestMethod.POST, value = "point/insert", consumes = MediaType.APPLICATION_JSON_VALUE)
-  @ApiOperation(value = "학생 점수 부여")
+  @ApiOperation(value = "기숙학생 점수 부여")
   InsertPointToStudentResponse insertPointToStudent(@RequestBody InsertPointToStudentRequest req, HttpServletRequest request) {
     insertPointToStudentHandler.setHttpServletRequest(request);
     return insertPointToStudentHandler.execute(null, req);
@@ -36,9 +36,20 @@ public class ApiPointController {
   private DeletePointToStudentHandler deletePointToStudentHandler;
 
   @RequestMapping(method = RequestMethod.POST, value = "point/delete", consumes = MediaType.APPLICATION_JSON_VALUE)
-  @ApiOperation(value = "학생 점수 취소")
+  @ApiOperation(value = "기숙학생 점수 취소")
   DeletePointToStudentResponse deletePointToStudent(@RequestBody DeletePointToStudentRequest req, HttpServletRequest request) {
     deletePointToStudentHandler.setHttpServletRequest(request);
     return deletePointToStudentHandler.execute(null, req);
+  }
+
+  private SelectPointByDormitoryStudentIdHandler selectPointByDormitoryStudentIdHandler;
+
+  @RequestMapping(method = RequestMethod.GET, value = "point/select")
+  @ApiOperation(value = "기숙학생 점수 조회")
+  SelectPointByDormitoryStudentIdResponse selectPointByDormitoryStudentId(@RequestParam("dormitoryStudentId") long dormitoryStudentId, HttpServletRequest request) {
+    selectPointByDormitoryStudentIdHandler.setHttpServletRequest(request);
+    SelectPointByDormitoryStudentIdRequest req = new SelectPointByDormitoryStudentIdRequest();
+    req.setDormitoryStudentId(dormitoryStudentId);
+    return selectPointByDormitoryStudentIdHandler.execute(null, req);
   }
 }

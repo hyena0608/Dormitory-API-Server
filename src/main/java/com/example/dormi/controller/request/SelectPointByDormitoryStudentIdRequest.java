@@ -6,16 +6,10 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
-@ApiModel(description = "기숙학생 점수 부여")
+@ApiModel(description = "기숙학생 점수 조회")
 @Data
-public class InsertPointToStudentRequest {
+public class SelectPointByDormitoryStudentIdRequest {
 
   @ApiParam(value = "null", required = true)
   private long dormitoryStudentId;
-
-  @ApiParam(value = "null", required = true)
-  private long ruleId;
-
-  @ApiParam(value = "null", required = true)
-  private long managerId;
 }

@@ -20,7 +20,8 @@ public class SelectDormitoryOneHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public SelectDormitoryOneResponse execute(CustomUserDetails user, SelectDormitoryOneRequest req) {
+  public SelectDormitoryOneResponse execute(CustomUserDetails user,
+                                            SelectDormitoryOneRequest req) {
     SelectDormitoryOneResponse res = new SelectDormitoryOneResponse();
 
     final long dormitoryId = req.getDormitoryId();
@@ -33,8 +34,10 @@ public class SelectDormitoryOneHandler extends BaseHandler {
 
     try {
 
-      DormitoryInfoVo dormitoryInfoVo = mapper.selectDormitoryOne(dormitoryId, dormitoryName);
-      DormitoryInfo dormitoryInfo = Converter.convert(dormitoryInfoVo, DormitoryInfo.class);
+      DormitoryInfoVo dormitoryInfoVo =
+              mapper.selectDormitoryOne(dormitoryId, dormitoryName);
+      DormitoryInfo dormitoryInfo =
+              Converter.convert(dormitoryInfoVo, DormitoryInfo.class);
 
       res.setDormitory(dormitoryInfo);
       res.setCode(ResultCode.Success);

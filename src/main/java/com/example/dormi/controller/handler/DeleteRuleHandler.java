@@ -18,7 +18,8 @@ public class DeleteRuleHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public DeleteRuleResponse execute(CustomUserDetails user, DeleteRuleRequest req) {
+    public DeleteRuleResponse execute(CustomUserDetails user,
+                                      DeleteRuleRequest req) {
         DeleteRuleResponse res = new DeleteRuleResponse();
 
         final long ruleId = req.getRuleId();

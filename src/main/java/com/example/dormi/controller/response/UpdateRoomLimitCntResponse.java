@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(description = "기숙학생 점수 부여")
+@ApiModel(description = "방 수정")
 @Data
-public class InsertPointToStudentResponse extends BaseResponse {
+public class UpdateRoomLimitCntResponse extends BaseResponse {
 
-  public long pointId = 0;
+  public long roomdId = 0;
 }

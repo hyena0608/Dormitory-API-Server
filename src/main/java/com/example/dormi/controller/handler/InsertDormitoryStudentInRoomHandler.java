@@ -27,7 +27,8 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public InsertDormitoryStudentInRoomResponse execute(CustomUserDetails user, InsertDormitoryStudentInRoomRequest req) {
+    public InsertDormitoryStudentInRoomResponse execute(CustomUserDetails user,
+                                                        InsertDormitoryStudentInRoomRequest req) {
         InsertDormitoryStudentInRoomResponse res = new InsertDormitoryStudentInRoomResponse();
 
         final long dormitoryId = req.getDormitoryId();
@@ -35,7 +36,8 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
         final long studentId = req.getStudentId();
         final int dormitoryStudentSemester = req.getDormitoryStudentSemester();
 
-        if (emptyParam(dormitoryId) || emptyParam(roomId) || emptyParam(studentId) || emptyParam(dormitoryStudentSemester)) {
+        if (emptyParam(dormitoryId) || emptyParam(roomId)
+                || emptyParam(studentId) || emptyParam(dormitoryStudentSemester)) {
             res.setCode(ResultCode.BadParams);
             return res;
         }
@@ -45,9 +47,12 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
             isStudentAlreadyInRoom(studentId);
             isRoomFull(roomId);
 
-            long dormitoryStudentId = mapper.insertDormitoryStudentInRoom(dormitoryId, roomId, studentId, dormitoryStudentSemester);
+            long dormitoryStudentId = mapper.insertDormitoryStudentInRoom(dormitoryId, roomId,
+                    studentId, dormitoryStudentSemester);
+            mapper.updateRoomCurrentCntByRoomId(roomId, 1);
 
             res.setDormitoryStudentId(dormitoryStudentId);
+            res.setCode(ResultCode.Success);
             return res;
 
         } catch (Exception e) {
@@ -66,10 +71,12 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
     }
 
     private void isStudentAlreadyInRoom(long studentId) {
-        List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList = mapper.selectDormitoryStudentByStudentId(studentId);
+        List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList =
+                mapper.selectDormitoryStudentByStudentId(studentId);
         List<Timestamp> deleteDateList = dormitoryStudentInfoVoList
                 .stream().map(DormitoryStudentInfoVo::getDormitoryStudentDeleteDt)
                 .collect(Collectors.toList());
+
         for (Timestamp date : deleteDateList) {
             if (date == null) {
                 throw new IllegalArgumentException("이미 방이 배정된 학생입니다.");
