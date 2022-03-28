@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import com.example.dormi.controller.ResultCode;
+
 import java.util.List;
 
 @Slf4j
@@ -15,31 +16,31 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InsertStudentHandler extends BaseHandler {
 
-  private final DormiMapper mapper;
+    private final DormiMapper mapper;
 
-  public InsertStudentResponse execute(CustomUserDetails user, InsertStudentRequest req) {
-    InsertStudentResponse res = new InsertStudentResponse();
+    public InsertStudentResponse execute(CustomUserDetails user, InsertStudentRequest req) {
+        InsertStudentResponse res = new InsertStudentResponse();
 
-    final long studentHakbun = req.getStudentHakbun();
-    final int studentSex = req.getStudentSex();
-    final String studentName = req.getStudentName();
-    final int studentAge = req.getStudentAge();
+        final long studentHakbun = req.getStudentHakbun();
+        final int studentSex = req.getStudentSex();
+        final String studentName = req.getStudentName();
+        final int studentAge = req.getStudentAge();
 
-    if(emptyParam(studentHakbun) || emptyParam(studentSex) || emptyParam(studentName) || emptyParam(studentAge)) {
-      res.setCode(ResultCode.BadParams);
-      return res;
+        if (emptyParam(studentHakbun) || emptyParam(studentSex) || emptyParam(studentName) || emptyParam(studentAge)) {
+            res.setCode(ResultCode.BadParams);
+            return res;
+        }
+
+        try {
+            long studentId = mapper.insertStudent(studentHakbun, studentSex, studentName, studentAge);
+
+            res.setStudentId(studentId);
+            res.setCode(ResultCode.Success);
+            return res;
+        } catch (Exception e) {
+            log.error(e.toString());
+            res.setCode(ResultCode.Failed);
+            return res;
+        }
     }
-
-    try {
-      long studentId = mapper.insertStudent(studentHakbun, studentSex, studentName, studentAge);
-
-      res.setCode(ResultCode.Success);
-      return res;
-    }
-    catch(Exception e) {
-      log.error(e.toString());
-      res.setCode(ResultCode.Failed);
-      return res;
-    }
-  }
 }

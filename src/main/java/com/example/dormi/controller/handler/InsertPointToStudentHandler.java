@@ -56,7 +56,6 @@ public class InsertPointToStudentHandler extends BaseHandler {
         return res;
     }
 
-    // FIXME : 인자 3개 !! 인자를 줄여보자자
    private void isAllExist(long dormitoryStudentId, long ruleId, long managerId)  {
         Optional<ManagerInfoVo> findManager =
                 Optional.ofNullable(mapper.selectManagerByManagerId(managerId));

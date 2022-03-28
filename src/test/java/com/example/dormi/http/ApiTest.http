@@ -173,3 +173,4 @@ Content-Type: application/json
 }
 
 ### 학생 점수 조회
+GET http://localhost:8080/api/v1/point/select?dormitoryStudentId=1
