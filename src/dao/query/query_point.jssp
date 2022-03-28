@@ -64,5 +64,6 @@ query selectPointByDormitoryStudentId(dormitoryStudentId Long) Point {
     ON  p.dormitory_student_id = ds.dormitory_student_id
     WHERE p.dormitory_student_id = :dormitoryStudentId 
     AND ds.dormitory_student_delete_dt is null
+    AND r.rule_delete_dt is null
 
 }
