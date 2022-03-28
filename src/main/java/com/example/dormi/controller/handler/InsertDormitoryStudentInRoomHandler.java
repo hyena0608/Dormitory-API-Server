@@ -37,7 +37,7 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
         final int dormitoryStudentSemester = req.getDormitoryStudentSemester();
 
         if (emptyParam(dormitoryId) || emptyParam(roomId)
-            || emptyParam(studentId) || emptyParam(dormitoryStudentSemester)) {
+                || emptyParam(studentId) || emptyParam(dormitoryStudentSemester)) {
             res.setCode(ResultCode.BadParams);
             return res;
         }
@@ -47,13 +47,12 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
             isStudentAlreadyInRoom(studentId);
             isRoomFull(roomId);
 
-            long dormitoryStudentId =
-                    mapper.insertDormitoryStudentInRoom(dormitoryId,
-                                                        roomId,
-                                                        studentId,
-                                                        dormitoryStudentSemester);
+            long dormitoryStudentId = mapper.insertDormitoryStudentInRoom(dormitoryId, roomId,
+                    studentId, dormitoryStudentSemester);
+            mapper.updateRoomCurrentCntByRoomId(roomId, 1);
 
             res.setDormitoryStudentId(dormitoryStudentId);
+            res.setCode(ResultCode.Success);
             return res;
 
         } catch (Exception e) {
