@@ -26,7 +26,8 @@ public class UpdateStudentHandler extends BaseHandler {
     final String studentName = req.getStudentName();
     final int studentAge = req.getStudentAge();
 
-//    if(emptyParam(studentId) || emptyParam(studentHakbun) || emptyParam(studentSex) || emptyParam(studentName) || emptyParam(studentAge)) {
+//    if(emptyParam(studentId) || emptyParam(studentHakbun) || emptyParam(studentSex)
+//      || emptyParam(studentName) || emptyParam(studentAge)) {
 //      res.setCode(ResultCode.BadParams);
 //      return res;
 //    }

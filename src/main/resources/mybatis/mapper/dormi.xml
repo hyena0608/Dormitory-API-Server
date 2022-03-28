@@ -276,13 +276,13 @@
         student
     WHERE
 ]]>
-        <if test='studentId != null and studentId != "0"'> 
+        <if test='studentId != null and studentId != ""'>
             student_id = #{studentId}
         </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != "0"'> 
+        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != ""'>
             and
         </if>
-        <if test='studentHakbun != null and studentHakbun != "0"'>
+        <if test='studentHakbun != null and studentHakbun != ""'>
             student_hakbun = #{studentHakbun}
         </if>
 <![CDATA[

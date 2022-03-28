@@ -17,7 +17,8 @@ public class DeleteStudentHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public DeleteStudentResponse execute(CustomUserDetails user, DeleteStudentRequest req) {
+  public DeleteStudentResponse execute(CustomUserDetails user,
+                                       DeleteStudentRequest req) {
     DeleteStudentResponse res = new DeleteStudentResponse();
 
     final long studentId = req.getStudentId();

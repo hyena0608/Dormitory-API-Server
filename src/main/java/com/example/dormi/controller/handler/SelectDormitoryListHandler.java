@@ -22,7 +22,8 @@ public class SelectDormitoryListHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public SelectDormitoryListResponse execute(CustomUserDetails user, SelectDormitoryListRequest req) {
+    public SelectDormitoryListResponse execute(CustomUserDetails user,
+                                               SelectDormitoryListRequest req) {
         SelectDormitoryListResponse res = new SelectDormitoryListResponse();
 
         try {

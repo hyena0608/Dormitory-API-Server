@@ -20,7 +20,8 @@ public class SelectRoomOneByIdNumHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public SelectRoomOneByIdNumResponse execute(CustomUserDetails user, SelectRoomOneByIdNumRequest req) {
+  public SelectRoomOneByIdNumResponse execute(CustomUserDetails user,
+                                              SelectRoomOneByIdNumRequest req) {
     SelectRoomOneByIdNumResponse res = new SelectRoomOneByIdNumResponse();
 
     final long roomId = req.getRoomId();

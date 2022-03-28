@@ -25,7 +25,8 @@ public class InsertPointToStudentHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public InsertPointToStudentResponse execute(CustomUserDetails user, InsertPointToStudentRequest req) {
+    public InsertPointToStudentResponse execute(CustomUserDetails user,
+                                                InsertPointToStudentRequest req) {
         InsertPointToStudentResponse res = new InsertPointToStudentResponse();
 
         final long dormitoryStudentId = req.getDormitoryStudentId();

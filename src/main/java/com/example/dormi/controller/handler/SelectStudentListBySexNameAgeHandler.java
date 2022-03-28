@@ -22,7 +22,8 @@ public class SelectStudentListBySexNameAgeHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public SelectStudentListBySexNameAgeResponse execute(CustomUserDetails user, SelectStudentListBySexNameAgeRequest req) {
+    public SelectStudentListBySexNameAgeResponse execute(CustomUserDetails user,
+                                                         SelectStudentListBySexNameAgeRequest req) {
         SelectStudentListBySexNameAgeResponse res = new SelectStudentListBySexNameAgeResponse();
 
         final int studentSex = req.getStudentSex();
@@ -35,7 +36,8 @@ public class SelectStudentListBySexNameAgeHandler extends BaseHandler {
 
         try {
 
-            List<StudentInfoVo> studentInfoVoList = mapper.selectStudentListBySexNameAge(studentSex, studentName);
+            List<StudentInfoVo> studentInfoVoList =
+                    mapper.selectStudentListBySexNameAge(studentSex, studentName);
             List<StudentInfo> studentInfoList = studentInfoVoList
                     .stream()
                     .map(o -> Converter.convert(o, StudentInfo.class))

@@ -20,7 +20,8 @@ public class SelectStudentOneByIdHakbunHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public SelectStudentOneByIdHakbunResponse execute(CustomUserDetails user, SelectStudentOneByIdHakbunRequest req) {
+  public SelectStudentOneByIdHakbunResponse execute(CustomUserDetails user,
+                                                    SelectStudentOneByIdHakbunRequest req) {
     SelectStudentOneByIdHakbunResponse res = new SelectStudentOneByIdHakbunResponse();
 
     final long studentId = req.getStudentId();

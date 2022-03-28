@@ -25,7 +25,8 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public UpdateDormitoryStudentOutRoomResponse execute(CustomUserDetails user, UpdateDormitoryStudentOutRoomRequest req) {
+    public UpdateDormitoryStudentOutRoomResponse execute(CustomUserDetails user,
+                                                         UpdateDormitoryStudentOutRoomRequest req) {
         UpdateDormitoryStudentOutRoomResponse res = new UpdateDormitoryStudentOutRoomResponse();
 
         final long dormitoryStudentId = req.getDormitoryStudentId();

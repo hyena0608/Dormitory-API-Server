@@ -22,7 +22,8 @@ public class DeleteRoomByIdNumHandler extends BaseHandler {
 
     private final DormiMapper mapper;
 
-    public DeleteRoomByIdNumResponse execute(CustomUserDetails user, DeleteRoomByIdNumRequest req) {
+    public DeleteRoomByIdNumResponse execute(CustomUserDetails user,
+                                             DeleteRoomByIdNumRequest req) {
         DeleteRoomByIdNumResponse res = new DeleteRoomByIdNumResponse();
 
         final long roomId = req.getRoomId();
@@ -36,7 +37,8 @@ public class DeleteRoomByIdNumHandler extends BaseHandler {
         try {
             isRoomExist(roomId, roomNumber);
             setStudentsOutFromRoom(roomId);
-            long deletedRoomId = mapper.deleteRoomByIdNum(roomId, roomNumber);
+            long deletedRoomId =
+                    mapper.deleteRoomByIdNum(roomId, roomNumber);
 
             res.setRoomId(deletedRoomId);
             res.setCode(ResultCode.Success);
@@ -49,7 +51,8 @@ public class DeleteRoomByIdNumHandler extends BaseHandler {
     }
 
     private void isRoomExist(long roomdId, long roomNumber) {
-        Optional<RoomInfoVo> roomInfoVo = Optional.ofNullable(mapper.selectRoomOneByIdNum(roomdId, roomNumber));
+        Optional<RoomInfoVo> roomInfoVo =
+                Optional.ofNullable(mapper.selectRoomOneByIdNum(roomdId, roomNumber));
         if (roomInfoVo.isEmpty()) {
             throw new NullPointerException("존재하지 않는 방입니다.");
         } else if (roomInfoVo.get().getRoomDeleteDt() != null) {
@@ -58,7 +61,8 @@ public class DeleteRoomByIdNumHandler extends BaseHandler {
     }
 
     private void setStudentsOutFromRoom(long roomId) {
-        List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList = mapper.selectDormitoryStudentByRoomId(roomId);
+        List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList =
+                mapper.selectDormitoryStudentByRoomId(roomId);
         for (DormitoryStudentInfoVo vo : dormitoryStudentInfoVoList) {
             long dormitoryStudentId = vo.getDormitoryStudentId();
             mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);

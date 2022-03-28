@@ -17,7 +17,8 @@ public class InsertDormitoryHandler extends BaseHandler {
 
   private final DormiMapper mapper;
 
-  public InsertDormitoryResponse execute(CustomUserDetails user, InsertDormitoryRequest req) {
+  public InsertDormitoryResponse execute(CustomUserDetails user,
+                                         InsertDormitoryRequest req) {
     InsertDormitoryResponse res = new InsertDormitoryResponse();
 
     final String dormitoryName = req.getDormitoryName();
