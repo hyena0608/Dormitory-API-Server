@@ -30,28 +30,24 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
 
         final long dormitoryStudentId = req.getDormitoryStudentId();
         final long studentId = req.getStudentId();
-        int calType = 1;
-
 //    if(emptyParam(dormitoryStudentId) || emptyParam(studentId)) {
 //      res.setCode(ResultCode.BadParams);\
 //      return res;
 //    }
 
         try {
+            DormitoryStudentInfoVo findDormitoryStudent =
+                    mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
 
-            DormitoryStudentInfoVo findDormitoryStudent = mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId);
-
-            isStudentAlreadyOut(findDormitoryStudent);
-
-            long findRoomId = findDormitoryStudent.getRoomId();
-            calType = isCurrentRoomCntOk(findRoomId, findDormitoryStudent);
-
-            mapper.updateRoomCurrentCntByRoomId(findRoomId, calType);
+            isStudentAlreadyOut(findDormitoryStudent.getDormitoryStudentDeleteDt());
+            isCurrentRoomCntOk(findDormitoryStudent.getRoomId());
+            mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);
+            mapper.updateRoomCurrentCntByRoomId(findDormitoryStudent.getRoomId(), 2);
             mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
 
+            res.setDormitoryStudentId(dormitoryStudentId);
             res.setCode(ResultCode.Success);
             return res;
-
         } catch (Exception e) {
             log.error(e.toString());
             res.setCode(ResultCode.Failed);
@@ -59,25 +55,16 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
         }
     }
 
-    private void isStudentAlreadyOut(DormitoryStudentInfoVo findDormitoryStudent) {
-        Timestamp deleteDt = findDormitoryStudent.getDormitoryStudentDeleteDt();
+    private void isStudentAlreadyOut(Timestamp deleteDt) {
         if (deleteDt != null) {
             throw new IllegalArgumentException("이미 퇴실 처리된 학생입니다.");
-        } else {
-            mapper.updateDormitoryStudentDeleteDt(findDormitoryStudent.getDormitoryStudentId());
         }
     }
 
-    private int isCurrentRoomCntOk(long findRoomId, DormitoryStudentInfoVo findDormitoryStudent) {
-        int calType = 2;
-
+    private void isCurrentRoomCntOk(long findRoomId) {
         RoomInfoVo findRoom = mapper.selectRoomOneByIdNum(findRoomId, 0);
-
-        int roomCurrentCnt = findRoom.getRoomCurrentCnt();
-        if (roomCurrentCnt == 0) calType = 0;
-        else if (roomCurrentCnt < 0)
+        if (findRoom.getRoomCurrentCnt() <= 0) {
             throw new IllegalArgumentException("현재 방 인원이 맞지 않습니다. (현 인원: -)");
-
-        return calType;
+        }
     }
 }
