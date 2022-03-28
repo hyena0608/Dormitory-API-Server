@@ -70,6 +70,7 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
         List<Timestamp> deleteDateList = dormitoryStudentInfoVoList
                 .stream().map(DormitoryStudentInfoVo::getDormitoryStudentDeleteDt)
                 .collect(Collectors.toList());
+
         for (Timestamp date : deleteDateList) {
             if (date == null) {
                 throw new IllegalArgumentException("이미 방이 배정된 학생입니다.");

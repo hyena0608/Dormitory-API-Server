@@ -59,10 +59,8 @@ public class DeleteRoomByIdNumHandler extends BaseHandler {
 
     private void setStudentsOutFromRoom(long roomId) {
         List<DormitoryStudentInfoVo> dormitoryStudentInfoVoList = mapper.selectDormitoryStudentByRoomId(roomId);
-        System.out.println("dormitoryStudentInfoVoList = " + dormitoryStudentInfoVoList);
         for (DormitoryStudentInfoVo vo : dormitoryStudentInfoVoList) {
             long dormitoryStudentId = vo.getDormitoryStudentId();
-            System.out.println("dormitoryStudentId = " + dormitoryStudentId);
             mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);
         }
     }

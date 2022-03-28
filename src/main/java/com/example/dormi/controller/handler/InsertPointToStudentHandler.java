@@ -55,13 +55,17 @@ public class InsertPointToStudentHandler extends BaseHandler {
         return res;
     }
 
-    private void isAllExist(long dormitoryStudentId, long ruleId, long managerId)  {
-        Optional<ManagerInfoVo> findManager = Optional.ofNullable(mapper.selectManagerByManagerId(managerId));
+    // FIXME : 인자 3개 !! 인자를 줄여보자자
+   private void isAllExist(long dormitoryStudentId, long ruleId, long managerId)  {
+        Optional<ManagerInfoVo> findManager =
+                Optional.ofNullable(mapper.selectManagerByManagerId(managerId));
         if (findManager.isEmpty()) {
             throw new NullPointerException("해당 관리자가 존재하지 않습니다 !");
         }
 
-        Optional<DormitoryStudentInfoVo> findDormitoryStudent = Optional.ofNullable(mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId));
+        Optional<DormitoryStudentInfoVo> findDormitoryStudent =
+                Optional.ofNullable(
+                        mapper.selectDormitoryStudentByDormitoryStudentId(dormitoryStudentId));
         if (findDormitoryStudent.isEmpty()) {
             throw new NullPointerException("해당 기숙 학생이 존재하지 않습니다 !");
         }
