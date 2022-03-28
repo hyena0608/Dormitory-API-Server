@@ -1,0 +1,175 @@
+### 학생 저장
+POST http://localhost:8080/api/v1/student/insert
+Content-Type: application/json
+
+{
+  "studentHakbun": "2222222222",
+  "studentSex": 1,
+  "studentName": "박현서",
+  "studentAge": 89
+}
+
+### 학생 개별 조회1
+GET http://localhost:8080/api/v1/student/select?studentId=1&studentHakbun=2222222222
+
+### 학생 개별 조회2
+GET http://localhost:8080/api/v1/student/select?studentId=1&studentHakbun=0
+
+### 학생 개별 조회3
+GET http://localhost:8080/api/v1/student/select?studentId=0&studentHakbun=2222222222
+
+### 학생 전체 조회
+GET http://localhost:8080/api/v1/student/select/list?studentSex=1&studentName=0
+
+### 학생 수정
+POST http://localhost:8080/api/v1/student/update
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "studentHakbun": "2222222222",
+  "studentSex": 1,
+  "studentName": "박현서",
+  "studentAge": 25
+}
+
+### 학생 삭제
+#POST http://localhost:8080/api/v1/student/delete
+#Content-Type: application/json
+#
+#{
+#  "studentId": 1,
+#  "studentHakbun": "20220318"
+#}
+
+### 기숙사 저장
+POST http://localhost:8080/api/v1/dormitory/insert
+Content-Type: application/json
+
+{
+  "dormitoryName": "호랑이관",
+  "dormitoryAddress": "서울시 호랑이구 호랑동 호랑이-2번지"
+}
+
+### 기숙사 개별 조회
+GET http://localhost:8080/api/v1/dormitory/select?dormitoryId=1&dormitoryName=호랑이관
+
+### 기숙사 리스트 조회
+GET http://localhost:8080/api/v1/dormitory/select/list
+
+### 기숙사 수정
+POST http://localhost:8080/api/v1/dormitory/update
+Content-Type: application/json
+
+{
+  "dormitoryId": 1,
+  "dormitoryName": "사슴관",
+  "dormitoryAddress": "사슴시 사슴구 사슴동 사슴-10번지"
+}
+
+### 기숙사 삭제
+#POST http://localhost:8080/api/v1/dormitory/delete
+#Content-Type: application/json
+#
+#{
+#  "dormitoryId": 1,
+#  "dormitoryName": "사슴관"
+#}
+
+### 방 저장
+POST http://localhost:8080/api/v1/room/insert
+Content-Type: application/json
+
+{
+  "roomNumber": 101,
+  "roomLimitCnt": 4,
+  "dormitoryId": 1
+}
+
+
+### 방 개별 조회
+GET http://localhost:8080/api/v1/room/select?roomId=1&roomNumber=101
+
+### 방 리스트 조회
+GET http://localhost:8080/api/v1/room/select/list?roomLimitCnt=4
+
+### 방 수정
+POST http://localhost:8080/api/v1/room/update
+Content-Type: application/json
+
+{
+  "roomId": 1,
+  "roomNumber": 2001,
+  "roomLimitCnt": 16
+}
+
+### 방 삭제
+#POST http://localhost:8080/api/v1/room/delete
+#Content-Type: application/json
+#
+#{
+#  "roomId": 1,
+#  "roomNumber": 101
+#}
+
+### 관리자 저장
+POST http://localhost:8080/api/v1/manager/insert
+Content-Type: application/json
+
+{
+  "managerAge": 20,
+  "managerName": "알파카"
+}
+
+### 학생 방 입장
+POST http://localhost:8080/api/v1/dormitorystudent/insert
+Content-Type: application/json
+
+{
+    "dormitoryId": 1,
+    "roomId": 1,
+    "studentId": 1,
+    "dormitoryStudentSemester": 1
+}
+
+### 학생 방 퇴실
+#POST http://localhost:8080/api/v1/dormitorystudent/delete
+#Content-Type: application/json
+#
+#{
+#  "dormitoryStudentId": 3,
+#  "studentId": 1
+#}
+
+
+### 규칙 저장
+POST http://localhost:8080/api/v1/rule/insert
+Content-Type: application/json
+
+{
+  "ruleContent" : "복도에서 장난 금지",
+  "ruleType" : "1",
+  "rulePoint": -10
+}
+
+### 학생 상/벌점 부여
+POST http://localhost:8080/api/v1/point/insert
+Content-Type: application/json
+
+{
+  "dormitoryStudentId": 1,
+  "ruleId": 1,
+  "managerId": 1
+}
+
+### 학생 점수 조회
+
+### 규칙 삭제
+POST http://localhost:8080/api/v1/rule/delete
+Content-Type: application/json
+
+{
+  "ruleId": 1
+}
+
+### 학생 점수 조회

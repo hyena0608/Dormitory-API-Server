@@ -6,7 +6,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
-@ApiModel(description = "학생 점수 취소")
+@ApiModel(description = "기숙학생 점수 취소")
 @Data
 public class DeletePointToStudentRequest {
 
