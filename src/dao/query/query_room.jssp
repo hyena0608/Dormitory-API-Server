@@ -36,15 +36,13 @@ query deleteRoomByIdNum(roomId Long, roomNumber Long) Long {
     SET
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='roomId != null and roomId != "0"'> 
-            room_id = :roomId
-        </if>
-        <if test='roomId != null and roomId != "0" and roomNumber != null and roomNumber != "0"'> 
-            and
+            AND room_id = :roomId
         </if>
         <if test='roomNumber != null and roomNumber != "0"'>
-            room_number = :roomNumber
+            AND room_number = :roomNumber
         </if>
 <![CDATA[
 

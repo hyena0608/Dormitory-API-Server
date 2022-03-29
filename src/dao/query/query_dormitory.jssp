@@ -39,15 +39,13 @@
     SET
         dormitory_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='dormitoryId != null and dormitoryId != "0"'> 
-            dormitory_id = :dormitoryId
-        </if>
-        <if test='dormitoryId != null and dormitoryId != "0" and dormitoryName != null and dormitoryName != "0"'> 
-            and
+            AND dormitory_id = :dormitoryId
         </if>
         <if test='dormitoryName != null and dormitoryName != "0"'>
-            dormitory_name = :dormitoryName
+            AND dormitory_name = :dormitoryName
         </if>
 <![CDATA[
 
@@ -62,17 +60,13 @@
     FROM 
         dormitory
     WHERE
+        1 = 1
 ]]>
     <if test='dormitoryName != null and dormitoryName != "0"'>
-        dormitory_name = :dormitoryName
+        AND dormitory_name = :dormitoryName
     </if>
-    
-    <if test='dormitoryId != null and dormitoryId != "0" and dormitoryName != null and dormitoryName != "0"'>
-        and
-    </if>
-
     <if test='dormitoryId != null and dormitoryId != "0"'>
-        dormitory_id = :dormitoryId
+        AND dormitory_id = :dormitoryId
     </if>
 
 <![CDATA[
