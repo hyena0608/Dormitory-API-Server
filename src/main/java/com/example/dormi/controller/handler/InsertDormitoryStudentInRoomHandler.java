@@ -63,9 +63,7 @@ public class InsertDormitoryStudentInRoomHandler extends BaseHandler {
 
     private void isRoomFull(long roomId) {
         RoomInfoVo roomInfoVo = mapper.selectRoomOneByIdNum(roomId, 0);
-        int roomLimitCnt = roomInfoVo.getRoomLimitCnt();
-        int roomCurrentCnt = roomInfoVo.getRoomCurrentCnt();
-        if (roomLimitCnt <= roomCurrentCnt) {
+        if (roomInfoVo.getRoomLimitCnt() <= roomInfoVo.getRoomCurrentCnt()) {
             throw new IllegalArgumentException("이미 가득 찬 방입니다.");
         }
     }

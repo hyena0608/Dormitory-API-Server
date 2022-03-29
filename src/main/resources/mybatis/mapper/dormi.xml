@@ -29,15 +29,14 @@
     SET
         dormitory_student_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='dormitoryStudentId != null and dormitoryStudentId != "0"'> 
-            dormitory_student_id = #{dormitoryStudentId}
+            AND dormitory_student_id = #{dormitoryStudentId}
         </if>
-        <if test='dormitoryStudentId != null and dormitoryStudentId != "0" and studentId != null and studentId != "0"'> 
-            and
-        </if>
+
         <if test='studentId != null and studentId != "0"'>
-            student_id = #{studentId}
+            AND student_id = #{studentId}
         </if>
 <![CDATA[
     ]]>
@@ -145,15 +144,13 @@
     SET
         dormitory_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='dormitoryId != null and dormitoryId != "0"'> 
-            dormitory_id = #{dormitoryId}
-        </if>
-        <if test='dormitoryId != null and dormitoryId != "0" and dormitoryName != null and dormitoryName != "0"'> 
-            and
+            AND dormitory_id = #{dormitoryId}
         </if>
         <if test='dormitoryName != null and dormitoryName != "0"'>
-            dormitory_name = #{dormitoryName}
+            AND dormitory_name = #{dormitoryName}
         </if>
 <![CDATA[
     ]]>
@@ -167,17 +164,13 @@
     FROM 
         dormitory
     WHERE
+        1 = 1
 ]]>
     <if test='dormitoryName != null and dormitoryName != "0"'>
-        dormitory_name = #{dormitoryName}
+        AND dormitory_name = #{dormitoryName}
     </if>
-    
-    <if test='dormitoryId != null and dormitoryId != "0" and dormitoryName != null and dormitoryName != "0"'>
-        and
-    </if>
-
     <if test='dormitoryId != null and dormitoryId != "0"'>
-        dormitory_id = #{dormitoryId}
+        AND dormitory_id = #{dormitoryId}
     </if>
 
 <![CDATA[
@@ -231,14 +224,12 @@
             , student_age = #{studentAge}
         </if>
     WHERE
+        1 = 1
         <if test='studentId != null and studentId != "0"'> 
-            student_id = #{studentId}
-        </if>
-        <if test='studentId != null and studentId != "0" and studentHakbun != null and studentHakbun != "0"'> 
-            and
+            AND student_id = #{studentId}
         </if>
         <if test='studentHakbun != null and studentHakbun != "0"'>
-            student_hakbun = #{studentHakbun}
+            AND student_hakbun = #{studentHakbun}
         </if>
 <![CDATA[
     ]]>
@@ -251,15 +242,13 @@
     SET
         student_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='studentId != null and studentId != "0"'> 
-            student_id = #{studentId}
-        </if>
-        <if test='studentId != null and studentId != "0" and studentHakbun != null and studentHakbun != "0"'> 
-            and
+            AND student_id = #{studentId}
         </if>
         <if test='studentHakbun != null and studentHakbun != "0"'>
-            student_hakbun = #{studentHakbun}
+            AND student_hakbun = #{studentHakbun}
         </if>
 <![CDATA[
     ]]>
@@ -275,15 +264,13 @@
     FROM
         student
     WHERE
+        1 = 1
 ]]>
         <if test='studentId != null and studentId != "0"'> 
-            student_id = #{studentId}
-        </if>
-        <if test='studentId != null and studentId != "" and studentHakbun != null and studentHakbun != "0"'> 
-            and
+            AND student_id = #{studentId}
         </if>
         <if test='studentHakbun != null and studentHakbun != "0"'>
-            student_hakbun = #{studentHakbun}
+            AND student_hakbun = #{studentHakbun}
         </if>
 <![CDATA[
     ]]>
@@ -299,15 +286,13 @@
     FROM
         student
     WHERE
+        1 = 1
 ]]>
         <if test='studentSex != null and studentSex != "0"'> 
-            student_sex = #{studentSex}
-        </if>
-        <if test='studentSex != null and studentSex != "0" and studentName != null and studentName != "0"'> 
-            and
+            AND student_sex = #{studentSex}
         </if>
         <if test='studentName != null and studentName != "0"'>
-            student_name = #{studentName}
+            AND student_name = #{studentName}
         </if>
 <![CDATA[
     ]]>
@@ -351,15 +336,13 @@
     SET
         room_delete_dt = CURRENT_TIMESTAMP
     WHERE
+        1 = 1
 ]]>
         <if test='roomId != null and roomId != "0"'> 
-            room_id = #{roomId}
-        </if>
-        <if test='roomId != null and roomId != "0" and roomNumber != null and roomNumber != "0"'> 
-            and
+            AND room_id = #{roomId}
         </if>
         <if test='roomNumber != null and roomNumber != "0"'>
-            room_number = #{roomNumber}
+            AND room_number = #{roomNumber}
         </if>
 <![CDATA[
     ]]>

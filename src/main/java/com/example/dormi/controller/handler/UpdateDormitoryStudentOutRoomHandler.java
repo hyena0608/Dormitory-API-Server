@@ -44,7 +44,6 @@ public class UpdateDormitoryStudentOutRoomHandler extends BaseHandler {
             isCurrentRoomCntOk(findDormitoryStudent.getRoomId());
             mapper.updateDormitoryStudentDeleteDt(dormitoryStudentId);
             mapper.updateRoomCurrentCntByRoomId(findDormitoryStudent.getRoomId(), 2);
-            mapper.updateDormitoryStudentOutRoom(dormitoryStudentId, studentId);
 
             res.setDormitoryStudentId(dormitoryStudentId);
             res.setCode(ResultCode.Success);
